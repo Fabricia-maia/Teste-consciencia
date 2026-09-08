@@ -493,16 +493,21 @@ function Intro({ onStart }) {
   return (
     <div style={styles.centerCol}>
       <div style={{ ...styles.card, maxWidth: 560, textAlign: "center" }}>
-        <p style={styles.eyebrow}>Protótipo · Teste de Consciência Pessoal</p>
-        <h1 style={styles.title}>Quanto da sua história de vida está guiando suas escolhas hoje?</h1>
+        <p style={styles.eyebrow}>TESTE DE CONSCIÊNCIA PESSOAL</p>
+        <h1 style={styles.title}>Você está vivendo do jeito que gostaria… ou apenas fazendo o que precisa ser feito?</h1>
         <p style={styles.body}>
-          Em poucos minutos, você vai entender melhor como tem lidado com suas
-          emoções, vínculos e rotina — e o quanto disso pode vir de padrões
-          mais antigos do que você imagina.
+          Em poucos minutos, responda a 25 perguntas sobre situações do dia a
+          dia e descubra qual dos quatro perfis mais combina com a forma como
+          você tem vivido este momento.
+        </p>
+        <p style={{ ...styles.body, marginTop: 12 }}>
+          Talvez algumas respostas te surpreendam. Outras podem colocar em
+          palavras coisas que você já sentia, mas ainda não tinha parado
+          para perceber.
         </p>
         <PathPreview />
         <button style={styles.ctaMain} className="cta-btn" onClick={onStart}>
-          Começar <ArrowRight size={18} strokeWidth={2.5} />
+          DESCOBRIR MEU PERFIL <ArrowRight size={18} strokeWidth={2.5} />
         </button>
         <p style={styles.fineprint}>Leva cerca de 5 minutos.</p>
         <p style={styles.copyright}>Criado por Fabrícia Máia · Terapeuta Integrativa</p>
@@ -578,7 +583,7 @@ function Result({ profile, onRestart, sendError }) {
   return (
     <div style={styles.centerCol}>
       <div style={{ ...styles.card, maxWidth: 640 }}>
-        <p style={styles.eyebrow}>{profile.titulo}</p>
+        <p style={styles.eyebrow}>SEU RESULTADO É</p>
         <h1 style={{ ...styles.title, color: profile.cor, marginBottom: 24 }}>{profile.nome}</h1>
 
         <Paragraphs text={profile.resultadoGratuito} />
