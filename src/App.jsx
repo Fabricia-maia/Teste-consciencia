@@ -213,9 +213,9 @@ começar a se transformar em algo bem mais possível:
 
 você já percebeu muita coisa.
 
-J� começou a entender por que reage de determinadas maneiras.
+Já começou a entender por que reage de determinadas maneiras.
 
-J� reconhece algumas situações que vivem se repetindo.
+Já reconhece algumas situações que vivem se repetindo.
 
 Provavelmente já teve vários momentos de:
 
