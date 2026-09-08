@@ -1,9 +1,7 @@
 import { useState } from "react";
-import { ArrowRight, RotateCcw, Sparkles, Check } from "lucide-react";
+import { ArrowRight, RotateCcw } from "lucide-react";
 
 // ⚠️ CONFIGURAÇÃO OBRIGATÓRIA
-// Troque o link abaixo pelo endpoint do seu formulário Formspree.
-// Veja o passo a passo completo no README.md deste projeto.
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xjyvryag";
 
 const QUESTIONS = [
@@ -40,61 +38,368 @@ const PROFILES = [
     min: 25, max: 43,
     nome: "No Automático",
     cor: "#8B5A6B",
-    corClara: "#C98CA0",
-    frase: "Você tem vivido no piloto automático — e algo em você já sente que quer entender o porquê.",
-    momento: "Sua rotina tem rodado sem muita pausa para sentir, questionar ou escolher de verdade. Isso não é preguiça, nem falta de força de vontade — é, muitas vezes, um jeito de sobreviver que a gente aprende cedo, observando como as pessoas da nossa própria história lidavam (ou fugiam) das próprias emoções. O automático protege, mas também afasta você de si mesmo(a). E o simples fato de estar aqui, respondendo com sinceridade, já é um sinal de que uma parte sua quer acordar.",
-    passos: [
-      { acao: "Antes de dormir, escreva 3 frases sobre como você se sentiu hoje — sem filtro, sem se corrigir.", porque: "Nomear o que se sente é o primeiro gesto contra o automático. O que não é nomeado tende a se repetir." },
-      { acao: "Escolha 1 hábito da sua rotina e faça diferente essa semana, só para observar o que isso desperta em você.", porque: "Pequenas quebras de padrão mostram ao corpo que mudar é seguro — e é assim que padrões antigos começam a se soltar." },
-      { acao: "Antes de dizer 'sim' a algo, pare e pergunte: isso é o que eu quero, ou um papel que aprendi a repetir?", porque: "Muitos 'sins' automáticos carregam lealdades antigas — a padrões da própria história de vida, nem sempre conscientes." },
+    titulo: "SEU RESULTADO: NO AUTOMÁTICO",
+    resultadoGratuito: `Sabe quando os dias vão passando e você simplesmente vai fazendo?
+
+Acorda, resolve o que aparece, responde o que precisa, aceita algumas coisas, deixa outras para depois... e segue.
+
+Só que, de vez em quando, bate aquela sensação:
+
+"Como foi que minha vida veio parar aqui?"
+
+Talvez você nem esteja exatamente infeliz.
+
+Mas também pode fazer tempo que você não para de verdade para se perguntar:
+
+"É isso que eu quero?"
+
+"Isso ainda faz sentido para mim?"
+
+"Ou eu só continuo fazendo porque sempre fiz assim?"
+
+Talvez você diga "sim" e só depois perceba que queria ter dito "não".
+
+Talvez alguma coisa incomode, mas você vá deixando... deixando... até chegar uma hora em que não dá mais.
+
+Talvez mudar pareça tão trabalhoso que você prefira continuar como está.
+
+Ou talvez, quando alguém pergunta o que você realmente quer, você perceba que nem sabe muito bem o que responder.
+
+E isso não significa que você não se conhece ou que não se importa com a própria vida.
+
+Às vezes a gente simplesmente passa tanto tempo fazendo o que precisa ser feito que para de perguntar se aquilo ainda combina com a gente.
+
+Talvez seu primeiro passo não seja mudar nada agora.
+
+Talvez seja apenas começar a perceber:
+
+"Quantas coisas na minha vida eu realmente escolhi... e quantas eu apenas fui aceitando?"`,
+    perguntas: [
+      "Se eu te perguntasse agora o que na sua vida você faz porque realmente quer — e o que faz simplesmente porque sempre foi assim — você saberia separar?",
+      "Tem alguma situação que vive se repetindo e faz você pensar: \"Como eu vim parar aqui de novo?\"",
+      "E se tivesse que escolher uma única coisa que gostaria de começar a fazer diferente, você saberia qual seria?",
     ],
+    depoisPerguntas: `Se você conseguiu responder com clareza, ótimo.
+
+Talvez este resultado gratuito já tenha te mostrado exatamente o que precisava enxergar neste momento.
+
+Mas se você travou em alguma dessas perguntas, não passe por isso rápido demais.
+
+Porque talvez você tenha acabado de perceber uma coisa importante:
+
+você sabe que existem partes da sua vida que já não combinam tanto com você...
+
+mas ainda não consegue perceber direito onde está escolhendo e onde está apenas repetindo.
+
+E é justamente aí que existe uma próxima camada.`,
+    premiumTexto: `Se você quiser olhar isso mais de perto...
+
+Seu Resultado Premium — No Automático não foi feito para mandar você mudar sua vida inteira.
+
+Muito pelo contrário.
+
+Ele foi pensado para ajudar você a enxergar aquelas situações que hoje acontecem tão rápido que você só percebe depois.
+
+Aquele "sim" que saiu antes de você pensar.
+
+Aquela coisa que você continua adiando.
+
+Aquele incômodo que você ignora.
+
+Aquela decisão que vai sendo empurrada porque deixar tudo como está parece mais fácil.
+
+Você vai poder observar onde seu automático aparece com mais força, construir seu Mapa de Clareza, experimentar pequenas pausas antes de responder e começar a perceber emoções e escolhas que talvez hoje passem despercebidas.
+
+Não para virar outra pessoa.
+
+Para começar a participar mais da própria vida.`,
+    botao: "QUERO COMEÇAR A PERCEBER",
+    checkout: "https://pay.kiwify.com.br/ai8EDtg",
   },
   {
     key: "sobrevivendo",
     min: 44, max: 62,
     nome: "Sobrevivendo",
     cor: "#B06A3E",
-    corClara: "#E3A56B",
-    frase: "Você está segurando muita coisa sozinho(a) — e talvez já não devesse.",
-    momento: "A rotina pesa, os dias se acumulam, e existe uma sensação constante de estar devendo algo a si mesmo(a). É comum que esse peso não comece agora: muitas vezes aprendemos, dentro da nossa própria família, que dar conta de tudo é prova de valor, de amor, ou de pertencimento. Sobreviver funcionou até aqui — mas sustentar essa forma de viver tem um custo, e talvez a pergunta não seja 'como aguentar mais', e sim 'de onde vem essa exigência tão grande comigo mesmo(a)'.",
-    passos: [
-      { acao: "Anote 3 coisas boas do seu dia, todos os dias, por 7 dias seguidos.", porque: "Quando sobrevivemos, o olhar treina para enxergar só o que falta. Isso reeduca a atenção para o que já está bem." },
-      { acao: "Identifique 1 compromisso que você pode recusar ou delegar essa semana.", porque: "Colocar um limite é praticar que seu tempo e sua energia têm valor — mesmo que ninguém tenha te ensinado isso antes." },
-      { acao: "Separe 20 minutos essa semana só para algo que te dá prazer, sem culpa e sem produzir nada com isso.", porque: "Descansar sem precisar merecer é, para muita gente, uma crença nova a ser construída — não uma regra natural." },
+    titulo: "SEU RESULTADO: SOBREVIVENDO",
+    resultadoGratuito: `Você é aquela pessoa que vai fazendo o que precisa ser feito.
+
+Resolve uma coisa aqui, outra ali, ajuda alguém, responde mensagem, cuida do trabalho, da casa, da família...
+
+e quando percebe:
+
+o dia acabou e você ficou por último de novo.
+
+Talvez você até pense:
+
+"Eu sei que não dá para continuar assim."
+
+Mas no dia seguinte acorda e começa tudo outra vez.
+
+Não porque você não queira mudar.
+
+Às vezes você está tão ocupada tentando dar conta da vida que nem sabe por onde começar a cuidar da sua.
+
+Você está cansada, mas continua porque "tem coisa para fazer".
+
+Diz "sim" mesmo querendo dizer "não", só para evitar problema ou não decepcionar alguém.
+
+Pensa que vai descansar depois que resolver tudo...
+
+mas esse "depois" quase nunca chega.
+
+E talvez o mais complicado seja isto:
+
+você se acostumou tanto a dar conta que pode nem perceber o quanto está cansada de ter que dar conta.
+
+Seu resultado não está dizendo que você precisa largar tudo, mudar sua vida amanhã ou pensar mais positivo.
+
+Talvez o primeiro passo seja bem mais simples:
+
+começar a perceber onde, no meio de tanta coisa e tanta gente, você foi deixando você mesma para depois.`,
+    perguntas: [
+      "Se eu te perguntasse hoje: \"O que mais está te cansando na sua vida?\" Você saberia responder?",
+      "E você consegue perceber o que você mesma continua fazendo, mesmo vendo que aquilo só te deixa ainda mais cansada?",
+      "Agora imagine que você pudesse mudar uma única coisa para começar a se colocar um pouco mais na sua própria vida. Você saberia o que mudar?",
     ],
+    depoisPerguntas: `Se as respostas vieram com facilidade, ótimo.
+
+Talvez você já tenha clareza suficiente para começar por conta própria.
+
+Mas se apareceu aquele "eu nem sei por onde começar"... preste atenção nisso.
+
+Porque às vezes a gente sabe que está cansada.
+
+Sabe que não quer continuar do mesmo jeito.
+
+Só ainda não consegue perceber o que precisa parar de carregar, onde precisa colocar um limite ou por que continua assumindo tudo outra vez.
+
+E existe uma diferença enorme entre:
+
+"Eu sei que estou cansada."
+
+e
+
+"Agora eu consigo enxergar o que está acontecendo comigo."`,
+    premiumTexto: `Se você quiser entender melhor de onde começar...
+
+Seu Resultado Premium — Sobrevivendo começa justamente aí.
+
+Ele não vai dizer para você "se priorizar mais" e encerrar o assunto.
+
+Você vai olhar para aquilo que vem carregando, para os "sins" que dá quando queria dizer "não", para a culpa que aparece quando tenta se escolher e para coisas que talvez tenha assumido como se fossem obrigação sua.
+
+E poderá separar melhor:
+
+o que realmente precisa de você, o que pode ser dividido, o que pode esperar e o que talvez nem precise continuar nas suas costas.
+
+Até aquele enorme:
+
+"Eu preciso mudar minha vida."
+
+começar a se transformar em algo bem mais possível:
+
+"Entendi. É por aqui que eu posso começar."`,
+    botao: "QUERO ME COLOCAR DE VOLTA NA MINHA VIDA",
+    checkout: "https://pay.kiwify.com.br/dqE5eYl",
   },
   {
     key: "despertando",
     min: 63, max: 81,
     nome: "Despertando",
     cor: "#C99A3D",
-    corClara: "#F0C868",
-    frase: "Algo em você já não aceita mais viver no automático — e isso é raro.",
-    momento: "Você já questiona, já busca mais, já sente que uma mudança está a caminho. A insegurança que aparece nesse momento não é sinal de erro — é o preço natural de qualquer transformação real. Muita gente, ao chegar até aqui, sente curiosidade por entender melhor a própria história: de onde vêm certos padrões que se repetem, certas escolhas, certos medos que parecem maiores do que a situação em si. Esse é exatamente o tipo de pergunta que abre espaço para um trabalho mais profundo.",
-    passos: [
-      { acao: "Escolha 1 mudança que você vem adiando e defina o menor passo possível para começar essa semana.", porque: "Passos pequenos e reais vencem a insegurança mais rápido do que grandes decisões — e criam prova de que mudar é possível." },
-      { acao: "Escreva tudo que está te sobrecarregando de informação e escolha só 1 ponto para focar agora.", porque: "Despertar traz excesso de clareza de uma vez. Focar em 1 coisa evita que a vontade de mudar vire paralisia." },
-      { acao: "Compartilhe com alguém de confiança 1 coisa que você quer mudar na sua vida.", porque: "Dizer em voz alta é o que transforma intenção em compromisso — e retira o peso de sustentar essa mudança sozinho(a)." },
+    titulo: "SEU RESULTADO: DESPERTANDO",
+    resultadoGratuito: `Aqui acontece uma coisa curiosa:
+
+você já percebeu muita coisa.
+
+J� começou a entender por que reage de determinadas maneiras.
+
+J� reconhece algumas situações que vivem se repetindo.
+
+Provavelmente já teve vários momentos de:
+
+"Meu Deus... agora entendi!"
+
+Só que existe uma parte bem irritante nisso. 😂
+
+Você entende...
+
+e às vezes continua fazendo igual.
+
+Sabe que precisa colocar um limite — mas na hora não coloca.
+
+Sabe que aquela situação não te faz bem — mas continua nela.
+
+Sabe que precisa tomar uma decisão — mas pensa, repensa, procura mais uma resposta, conversa com alguém, assiste mais alguma coisa...
+
+e continua sem decidir.
+
+Talvez você já tenha pensado:
+
+"Eu sei de onde isso vem, mas continuo fazendo."
+
+Ou:
+
+"Eu já deveria ter superado isso."
+
+E talvez a pergunta mais frustrante seja:
+
+"Se eu já entendi tanta coisa sobre mim, por que ainda continuo repetindo?"
+
+Porque entender é uma parte da mudança.
+
+Fazer diferente quando a situação acontece de verdade é outra.
+
+Talvez você não precise descobrir mais cinquenta coisas sobre você agora.
+
+Talvez precise perceber:
+
+"Daquilo que eu já sei sobre mim... o que eu ainda não estou conseguindo colocar em prática?"`,
+    perguntas: [
+      "Você já entendeu várias coisas sobre você. Mas qual delas você ainda continua repetindo, mesmo sabendo que aquilo não te ajuda?",
+      "Quando chega a hora de fazer diferente... o que geralmente faz você voltar atrás?",
+      "E se eu tirasse da mesa estudar mais, pesquisar mais, assistir mais alguma coisa ou pensar mais um pouco e perguntasse: \"Qual é a próxima atitude concreta que você precisa tomar?\" Você saberia responder?",
     ],
+    depoisPerguntas: `Se sim, maravilhoso.
+
+Talvez você já tenha exatamente o que precisa para experimentar um movimento diferente.
+
+Mas se percebeu que sabe explicar muito bem o que acontece com você e, mesmo assim, não sabe o que fazer quando a situação acontece de verdade... aí existe uma pista importante.
+
+Talvez não esteja faltando mais informação.
+
+Talvez esteja faltando transformar o que você já entendeu em alguma coisa que consiga viver.`,
+    premiumTexto: `Se você está cansada de só entender...
+
+Seu Resultado Premium — Despertando não foi criado para jogar mais informação em cima de você.
+
+A proposta é justamente o contrário.
+
+Você vai escolher um padrão de cada vez, perceber quando ele aparece e começar a testar pequenas respostas diferentes na vida real.
+
+Porque talvez o que esteja faltando agora não seja mais uma explicação sobre por que você é assim.
+
+Talvez seja aprender a atravessar aquele momento em que você pensa:
+
+"Eu sei o que deveria fazer..."
+
+e, dessa vez...
+
+faz alguma coisa diferente.`,
+    botao: "QUERO TRANSFORMAR O QUE SEI EM AÇÃO",
+    checkout: "https://pay.kiwify.com.br/6lHlycF",
   },
   {
     key: "caminho-real",
     min: 82, max: 100,
     nome: "Caminho Real",
     cor: "#2F7A6B",
-    corClara: "#6FBFA8",
-    frase: "Você já caminha com consciência — o desafio agora é sustentar sem se cobrar demais.",
-    momento: "Você já pratica autoconhecimento com consistência, e isso aparece na forma como lida com desafios, relações e escolhas. O ponto de atenção aqui não é aprender mais sobre si — é notar se, mesmo consciente, você ainda carrega uma exigência antiga de precisar merecer descanso ou provar seu valor a cada novo passo. Às vezes, o padrão mais difícil de ver é justamente o que se disfarça de virtude: a busca constante por evoluir, sem nunca simplesmente estar.",
-    passos: [
-      { acao: "Escolha 1 dia essa semana para não ter nenhuma meta de produtividade pessoal — só descansar.", porque: "Quem está no Caminho Real corre o risco de transformar até o descanso em tarefa. Este passo testa exatamente isso." },
-      { acao: "Reflita: essa vontade de evoluir sempre vem de mim, ou de uma expectativa que aprendi a carregar?", porque: "Diferenciar desejo próprio de exigência herdada é o que sustenta um crescimento leve, e não um crescimento em fuga de algo." },
-      { acao: "Busque uma nova fonte de aprendizado (livro, curso, mentoria) escolhida só por curiosidade, sem meta de resultado.", porque: "Aprender sem precisar 'render' é o que mantém a consciência viva sem virar mais uma cobrança." },
+    titulo: "SEU RESULTADO: CAMINHO REAL",
+    resultadoGratuito: `Você provavelmente já se observa bastante.
+
+Percebe quando alguma coisa te incomoda.
+
+Pensa sobre suas escolhas.
+
+Tenta compreender suas emoções.
+
+Procura viver de um jeito que faça sentido para você.
+
+E isso é muito bom.
+
+Mas existe uma armadilha aqui que quase ninguém conta:
+
+até o autoconhecimento pode virar cobrança.
+
+Você começa querendo se conhecer melhor...
+
+e, quando percebe, está pensando:
+
+"Eu já deveria saber lidar com isso."
+
+"Não acredito que isso ainda mexe comigo."
+
+"Eu achei que já tinha superado."
+
+"Preciso entender o que essa situação quer me ensinar."
+
+E sim... às vezes até descansar vira projeto de desenvolvimento pessoal. 😂
+
+Talvez você sinta que precisa lidar "bem" com tudo porque já se conhece.
+
+Talvez fique incomodada quando um comportamento antigo aparece novamente.
+
+Talvez tente entender rapidamente uma emoção em vez de simplesmente sentir.
+
+Ou ache muito mais fácil resolver sozinha do que admitir:
+
+"Dessa vez eu preciso de ajuda."
+
+E talvez seu próximo passo não seja se conhecer mais.
+
+Pode ser aprender a se tratar com um pouco menos de cobrança enquanto continua se conhecendo.
+
+Porque consciência não significa nunca mais errar.
+
+Nunca mais se confundir.
+
+Nunca mais voltar a um comportamento antigo.
+
+Talvez agora a pergunta seja:
+
+"Será que estou usando tudo o que aprendi sobre mim para viver com mais liberdade... ou para me cobrar ainda mais?"`,
+    perguntas: [
+      "Tudo o que aprendeu sobre si tem feito sua vida ficar mais leve... ou mais cheia de regras sobre como você deveria ser?",
+      "Quando uma emoção ou comportamento antigo volta, você consegue pensar: \"Tudo bem, isso apareceu de novo.\" Ou sua primeira reação é: \"Eu já deveria ter superado isso\"?",
+      "E existe alguma área da sua vida em que talvez você não precise evoluir mais, entender mais ou melhorar mais... mas simplesmente se permitir ser humana?",
     ],
+    depoisPerguntas: `Se essas respostas estão claras, ótimo.
+
+Continue colocando isso na vida.
+
+Mas se alguma dessas perguntas te incomodou um pouquinho... talvez valha não correr para resolver o incômodo.
+
+Porque chega uma hora em que autoconhecimento não significa descobrir mais uma coisa para consertar.
+
+Às vezes significa perceber onde até a vontade de crescer virou uma maneira de se cobrar.`,
+    premiumTexto: `Talvez seu próximo passo não seja "evoluir mais".
+
+Seu Resultado Premium — Caminho Real não é uma nova lista de coisas que você precisa melhorar.
+
+Ele convida você a perceber onde aquela vontade bonita de crescer, se conhecer e fazer melhor pode ter começado, sem perceber, a virar:
+
+"Eu deveria saber."
+
+"Eu não posso voltar."
+
+"Eu preciso lidar melhor."
+
+Você vai observar onde existe crescimento de verdade e onde talvez exista cobrança disfarçada de autoconhecimento.
+
+Vai experimentar momentos em que não existe nada para corrigir, trabalhar ou melhorar.
+
+E talvez descubra que seu próximo passo não seja se transformar em uma versão ainda "melhor" de você.
+
+Pode ser conseguir viver tudo o que já aprendeu sobre si com um pouco mais de liberdade, flexibilidade e humanidade.`,
+    botao: "QUERO CRESCER COM MAIS LEVEZA",
+    checkout: "https://pay.kiwify.com.br/EmsPGr0",
   },
 ];
 
 function getProfile(score) {
   return PROFILES.find((p) => score >= p.min && score <= p.max) || PROFILES[0];
+}
+
+function Paragraphs({ text, style }) {
+  const blocks = text.split(/\n\n+/).map((b) => b.trim()).filter(Boolean);
+  return (
+    <>
+      {blocks.map((b, i) => (
+        <p key={i} style={{ ...styles.body, ...style, marginBottom: 14 }}>{b}</p>
+      ))}
+    </>
+  );
 }
 
 export default function App() {
@@ -139,8 +444,6 @@ export default function App() {
       if (!res.ok) throw new Error("Falha no envio");
       setScreen("result");
     } catch (err) {
-      // Mesmo se o envio falhar, não travamos a pessoa fora do resultado —
-      // ela já respondeu 25 perguntas e merece ver o resultado.
       setSendError(true);
       setScreen("result");
     } finally {
@@ -172,12 +475,7 @@ export default function App() {
       {screen === "intro" && <Intro onStart={() => setScreen("quiz")} />}
 
       {screen === "quiz" && (
-        <Quiz
-          index={current}
-          question={QUESTIONS[current]}
-          total={QUESTIONS.length}
-          onSelect={selectOption}
-        />
+        <Quiz index={current} question={QUESTIONS[current]} total={QUESTIONS.length} onSelect={selectOption} />
       )}
 
       {screen === "lead" && (
@@ -185,7 +483,7 @@ export default function App() {
       )}
 
       {screen === "result" && (
-        <Result score={score} profile={profile} onRestart={restart} sendError={sendError} />
+        <Result profile={profile} onRestart={restart} sendError={sendError} />
       )}
     </div>
   );
@@ -200,8 +498,7 @@ function Intro({ onStart }) {
         <p style={styles.body}>
           Em poucos minutos, você vai entender melhor como tem lidado com suas
           emoções, vínculos e rotina — e o quanto disso pode vir de padrões
-          mais antigos do que você imagina. Ao final, um retrato do seu
-          momento e passos concretos para começar a mudar.
+          mais antigos do que você imagina.
         </p>
         <PathPreview />
         <button style={styles.ctaMain} className="cta-btn" onClick={onStart}>
@@ -261,34 +558,12 @@ function Lead({ lead, setLead, onSubmit, sending }) {
         <p style={styles.eyebrow}>Quase lá</p>
         <h2 style={{ ...styles.title, fontSize: 24 }}>Para onde enviamos seu resultado?</h2>
         <p style={styles.body}>
-          Seu retrato está pronto. Preencha abaixo para ver seu resultado
-          completo, com os passos pensados para o seu momento.
+          Seu retrato está pronto. Preencha abaixo para ver seu resultado completo.
         </p>
         <form onSubmit={onSubmit} style={{ display: "flex", flexDirection: "column", gap: 12, marginTop: 20 }}>
-          <input
-            required
-            type="text"
-            placeholder="Seu nome"
-            value={lead.nome}
-            onChange={(e) => setLead({ ...lead, nome: e.target.value })}
-            style={styles.input}
-          />
-          <input
-            required
-            type="email"
-            placeholder="Seu melhor e-mail"
-            value={lead.email}
-            onChange={(e) => setLead({ ...lead, email: e.target.value })}
-            style={styles.input}
-          />
-          <input
-            required
-            type="tel"
-            placeholder="WhatsApp (com DDD)"
-            value={lead.whatsapp}
-            onChange={(e) => setLead({ ...lead, whatsapp: e.target.value })}
-            style={styles.input}
-          />
+          <input required type="text" placeholder="Seu nome" value={lead.nome} onChange={(e) => setLead({ ...lead, nome: e.target.value })} style={styles.input} />
+          <input required type="email" placeholder="Seu melhor e-mail" value={lead.email} onChange={(e) => setLead({ ...lead, email: e.target.value })} style={styles.input} />
+          <input required type="tel" placeholder="WhatsApp (com DDD)" value={lead.whatsapp} onChange={(e) => setLead({ ...lead, whatsapp: e.target.value })} style={styles.input} />
           <button type="submit" style={styles.ctaMain} className="cta-btn" disabled={sending}>
             {sending ? "Enviando..." : "Ver meu resultado"} <ArrowRight size={18} strokeWidth={2.5} />
           </button>
@@ -299,113 +574,66 @@ function Lead({ lead, setLead, onSubmit, sending }) {
   );
 }
 
-function Result({ score, profile, onRestart, sendError }) {
+function Result({ profile, onRestart, sendError }) {
   return (
     <div style={styles.centerCol}>
       <div style={{ ...styles.card, maxWidth: 640 }}>
-        <p style={styles.eyebrow}>Seu resultado</p>
-        <h1 style={{ ...styles.title, color: profile.cor }}>{profile.nome}</h1>
-        <p style={{ ...styles.body, fontStyle: "italic", color: "#6B667D" }}>{profile.frase}</p>
+        <p style={styles.eyebrow}>{profile.titulo}</p>
+        <h1 style={{ ...styles.title, color: profile.cor, marginBottom: 24 }}>{profile.nome}</h1>
 
-        <PathResult activeKey={profile.key} />
-
-        <div style={{ ...styles.section, borderColor: profile.cor + "33" }}>
-          <p style={styles.sectionLabel}>O que esse resultado revela sobre você agora</p>
-          <p style={styles.body}>{profile.momento}</p>
-        </div>
+        <Paragraphs text={profile.resultadoGratuito} />
 
         <div style={styles.section}>
-          <p style={styles.sectionLabel}>Passos pensados para o seu momento</p>
-          <div style={{ display: "flex", flexDirection: "column", gap: 16, marginTop: 12 }}>
-            {profile.passos.map((passo, i) => (
-              <div key={i} style={styles.stepRow}>
-                <span style={{ ...styles.stepCheck, background: profile.cor }}>
-                  <Check size={13} color="#fff" strokeWidth={3} />
-                </span>
-                <div>
-                  <p style={{ ...styles.body, fontWeight: 600, color: "#2A2640", margin: 0 }}>{passo.acao}</p>
-                  <p style={{ ...styles.body, fontSize: 13.5, color: "#8B87A0", margin: "4px 0 0", lineHeight: 1.5 }}>{passo.porque}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <p style={{ ...styles.body, fontStyle: "italic", color: "#8B87A0" }}>Antes de você fechar este resultado...</p>
+          <p style={{ ...styles.body, fontStyle: "italic", color: "#8B87A0" }}>Quero te fazer três perguntas. Não precisa responder para mim. Responda para você.</p>
         </div>
 
-        <div style={{ ...styles.inviteCard, background: `linear-gradient(135deg, ${profile.cor}14, ${profile.cor}05)`, borderColor: profile.cor + "40", flexDirection: "column", gap: 14 }}>
-          <div style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
-            <Sparkles size={18} color={profile.cor} style={{ marginTop: 2, flexShrink: 0 }} />
-            <div>
-              <p style={{ ...styles.sectionLabel, marginBottom: 4 }}>Você não precisa caminhar sozinho(a) a partir daqui</p>
-              <p style={styles.body}>
-                Esse resultado é uma fotografia — não um destino. Se algo aqui tocou
-                você, a <strong>Conversa que Cura</strong> é uma sessão avulsa criada
-                para transformar essa clareza em direcionamento real, com a terapeuta
-                integrativa{" "}
-                <strong>Fabrícia Máia</strong>.
-              </p>
+        <div style={{ display: "flex", flexDirection: "column", gap: 18, marginTop: 20 }}>
+          {profile.perguntas.map((pergunta, i) => (
+            <div key={i} style={styles.perguntaBox}>
+              <span style={{ ...styles.perguntaNum, color: profile.cor }}>{i + 1}</span>
+              <p style={{ ...styles.body, fontWeight: 500, color: "#2A2640" }}>{pergunta}</p>
             </div>
-          </div>
-          <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginLeft: 28 }}>
+          ))}
+        </div>
+
+        <div style={{ marginTop: 26 }}>
+          <Paragraphs text={profile.depoisPerguntas} />
+        </div>
+
+        <div style={{ ...styles.premiumCard, background: `linear-gradient(135deg, ${profile.cor}12, ${profile.cor}04)`, borderColor: profile.cor + "35" }}>
+          <Paragraphs text={profile.premiumTexto} />
+
+          <div style={{ marginTop: 20, textAlign: "center" }}>
+            <p style={{ ...styles.sectionLabel, color: profile.cor, marginBottom: 4 }}>Resultado Premium — {profile.nome}</p>
+            <p style={{ fontFamily: "'Fraunces', serif", fontSize: 32, fontWeight: 600, color: "#2A2640", margin: "4px 0 18px" }}>R$27</p>
             <a
-              href="https://wa.me/5562992317644"
+              href={profile.checkout}
               target="_blank"
               rel="noreferrer"
               className="cta-btn"
-              style={{ ...styles.ctaMain, marginTop: 0, background: profile.cor, fontSize: 14, padding: "10px 20px", textDecoration: "none" }}
+              style={{ ...styles.ctaMain, marginTop: 0, background: profile.cor, textDecoration: "none", width: "100%", justifyContent: "center" }}
             >
-              Agendar a Conversa que Cura <ArrowRight size={16} />
+              {profile.botao} <ArrowRight size={18} />
             </a>
-            <a
-              href="https://instagram.com/fabriciai.maia"
-              target="_blank"
-              rel="noreferrer"
-              style={{ display: "inline-flex", alignItems: "center", fontSize: 13.5, color: profile.cor, fontWeight: 600, textDecoration: "none", padding: "10px 4px" }}
-            >
-              @fabriciai.maia
-            </a>
+            <p style={{ ...styles.fineprint, marginTop: 12 }}>
+              Acesso ao material digital correspondente ao seu perfil após a confirmação da compra.
+            </p>
           </div>
         </div>
 
         {sendError && (
-          <p style={{ ...styles.fineprint, color: "#B06A3E", marginTop: 12 }}>
-            Não conseguimos salvar seus dados automaticamente — se quiser continuar a conversa, chama no WhatsApp acima. 🙂
+          <p style={{ ...styles.fineprint, color: "#B06A3E", marginTop: 16 }}>
+            Não conseguimos salvar seus dados automaticamente — sem problema, seu resultado continua completo abaixo.
           </p>
         )}
 
-        <button style={{ ...styles.ctaMain, background: "transparent", color: "#6B667D", border: "1px solid #DEDAE8", marginTop: 24 }} className="cta-btn" onClick={onRestart}>
+        <button style={{ ...styles.ctaMain, background: "transparent", color: "#6B667D", border: "1px solid #DEDAE8", marginTop: 28 }} className="cta-btn" onClick={onRestart}>
           <RotateCcw size={16} /> Refazer o teste
         </button>
 
         <p style={styles.copyright}>Teste de Consciência Pessoal © Fabrícia Máia. Todos os direitos reservados.</p>
       </div>
-    </div>
-  );
-}
-
-function PathResult({ activeKey }) {
-  return (
-    <div style={{ display: "flex", alignItems: "center", margin: "24px 0 8px", position: "relative" }}>
-      <div style={{ position: "absolute", top: "50%", left: 5, right: 5, height: 2, background: "#E7E3F0", transform: "translateY(-50%)", zIndex: 0 }} />
-      {PROFILES.map((p) => {
-        const active = p.key === activeKey;
-        return (
-          <div key={p.key} style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 8, position: "relative", zIndex: 1 }}>
-            <div
-              className="node"
-              style={{
-                width: active ? 20 : 10,
-                height: active ? 20 : 10,
-                borderRadius: "50%",
-                background: active ? p.cor : "#D8D4E4",
-                boxShadow: active ? `0 0 0 6px ${p.cor}22` : "none",
-              }}
-            />
-            <span style={{ fontSize: 11, fontFamily: "Inter, sans-serif", color: active ? p.cor : "#B4AFC4", fontWeight: active ? 600 : 400, textAlign: "center" }}>
-              {p.nome}
-            </span>
-          </div>
-        );
-      })}
     </div>
   );
 }
@@ -417,147 +645,23 @@ const styles = {
     fontFamily: "Inter, sans-serif",
     padding: "40px 20px",
   },
-  centerCol: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "flex-start",
-  },
-  card: {
-    background: "#FBF9F5",
-    borderRadius: 16,
-    padding: "36px 40px",
-    width: "100%",
-    boxShadow: "0 20px 60px rgba(0,0,0,0.35)",
-  },
-  eyebrow: {
-    fontSize: 12,
-    letterSpacing: "0.08em",
-    textTransform: "uppercase",
-    color: "#9691A8",
-    fontWeight: 600,
-    marginBottom: 8,
-  },
-  title: {
-    fontFamily: "'Fraunces', serif",
-    fontSize: 32,
-    fontWeight: 600,
-    color: "#2A2640",
-    margin: "0 0 12px",
-    lineHeight: 1.15,
-  },
-  body: {
-    fontSize: 15,
-    lineHeight: 1.6,
-    color: "#4B4760",
-    margin: 0,
-  },
-  fineprint: {
-    fontSize: 12,
-    color: "#B4AFC4",
-    marginTop: 14,
-  },
-  ctaMain: {
-    marginTop: 8,
-    padding: "12px 26px",
-    borderRadius: 999,
-    border: "none",
-    background: "#2A2640",
-    color: "#fff",
-    fontSize: 15,
-    fontWeight: 600,
-    cursor: "pointer",
-    display: "inline-flex",
-    alignItems: "center",
-    gap: 8,
-    fontFamily: "Inter, sans-serif",
-  },
-  input: {
-    padding: "12px 14px",
-    borderRadius: 10,
-    border: "1px solid #E7E3F0",
-    fontSize: 14.5,
-    fontFamily: "Inter, sans-serif",
-    color: "#2A2640",
-  },
-  progressTrack: {
-    height: 4,
-    background: "#EDE9F3",
-    borderRadius: 4,
-    overflow: "hidden",
-  },
-  progressFill: {
-    height: "100%",
-    background: "#C99A3D",
-    borderRadius: 4,
-    transition: "width 0.3s ease",
-  },
-  progressLabel: {
-    fontSize: 12,
-    color: "#B4AFC4",
-    margin: "10px 0 18px",
-    fontWeight: 500,
-  },
-  question: {
-    fontFamily: "'Fraunces', serif",
-    fontSize: 22,
-    fontWeight: 500,
-    color: "#2A2640",
-    margin: 0,
-    lineHeight: 1.3,
-  },
-  optBtn: {
-    textAlign: "left",
-    padding: "14px 16px",
-    borderRadius: 10,
-    border: "1px solid #E7E3F0",
-    background: "#fff",
-    fontSize: 14.5,
-    color: "#3D3956",
-    cursor: "pointer",
-    fontFamily: "Inter, sans-serif",
-    lineHeight: 1.4,
-  },
-  section: {
-    marginTop: 26,
-    paddingTop: 20,
-    borderTop: "1px solid #EDE9F3",
-  },
-  sectionLabel: {
-    fontSize: 12,
-    letterSpacing: "0.06em",
-    textTransform: "uppercase",
-    color: "#8B87A0",
-    fontWeight: 700,
-    margin: "0 0 8px",
-  },
-  stepRow: {
-    display: "flex",
-    alignItems: "flex-start",
-    gap: 10,
-  },
-  stepCheck: {
-    width: 20,
-    height: 20,
-    borderRadius: "50%",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    flexShrink: 0,
-    marginTop: 1,
-  },
-  inviteCard: {
-    marginTop: 24,
-    padding: "20px 22px",
-    borderRadius: 12,
-    border: "1px solid",
-    display: "flex",
-    gap: 12,
-    alignItems: "flex-start",
-  },
-  copyright: {
-    fontSize: 11,
-    color: "#C4C0D2",
-    textAlign: "center",
-    marginTop: 20,
-  },
+  centerCol: { display: "flex", justifyContent: "center", alignItems: "flex-start" },
+  card: { background: "#FBF9F5", borderRadius: 16, padding: "36px 40px", width: "100%", boxShadow: "0 20px 60px rgba(0,0,0,0.35)" },
+  eyebrow: { fontSize: 12, letterSpacing: "0.08em", textTransform: "uppercase", color: "#9691A8", fontWeight: 600, marginBottom: 8 },
+  title: { fontFamily: "'Fraunces', serif", fontSize: 32, fontWeight: 600, color: "#2A2640", margin: "0 0 12px", lineHeight: 1.15 },
+  body: { fontSize: 15, lineHeight: 1.65, color: "#4B4760", margin: 0 },
+  fineprint: { fontSize: 12, color: "#B4AFC4", marginTop: 14 },
+  ctaMain: { marginTop: 8, padding: "13px 26px", borderRadius: 999, border: "none", background: "#2A2640", color: "#fff", fontSize: 15, fontWeight: 600, cursor: "pointer", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8, fontFamily: "Inter, sans-serif" },
+  input: { padding: "12px 14px", borderRadius: 10, border: "1px solid #E7E3F0", fontSize: 14.5, fontFamily: "Inter, sans-serif", color: "#2A2640" },
+  progressTrack: { height: 4, background: "#EDE9F3", borderRadius: 4, overflow: "hidden" },
+  progressFill: { height: "100%", background: "#C99A3D", borderRadius: 4, transition: "width 0.3s ease" },
+  progressLabel: { fontSize: 12, color: "#B4AFC4", margin: "10px 0 18px", fontWeight: 500 },
+  question: { fontFamily: "'Fraunces', serif", fontSize: 22, fontWeight: 500, color: "#2A2640", margin: 0, lineHeight: 1.3 },
+  optBtn: { textAlign: "left", padding: "14px 16px", borderRadius: 10, border: "1px solid #E7E3F0", background: "#fff", fontSize: 14.5, color: "#3D3956", cursor: "pointer", fontFamily: "Inter, sans-serif", lineHeight: 1.4 },
+  section: { marginTop: 28, paddingTop: 22, borderTop: "1px solid #EDE9F3" },
+  sectionLabel: { fontSize: 12, letterSpacing: "0.06em", textTransform: "uppercase", color: "#8B87A0", fontWeight: 700, margin: "0 0 8px" },
+  perguntaBox: { padding: "16px 18px", borderRadius: 12, background: "#F3EFE6", display: "flex", gap: 14, alignItems: "flex-start" },
+  perguntaNum: { fontFamily: "'Fraunces', serif", fontSize: 20, fontWeight: 600, flexShrink: 0 },
+  premiumCard: { marginTop: 28, padding: "24px 26px", borderRadius: 14, border: "1px solid" },
+  copyright: { fontSize: 11, color: "#C4C0D2", textAlign: "center", marginTop: 24 },
 };
