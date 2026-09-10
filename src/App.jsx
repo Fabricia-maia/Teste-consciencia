@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, RotateCcw } from "lucide-react";
+import { ArrowRight, ArrowLeft, RotateCcw } from "lucide-react";
 
 // ⚠️ CONFIGURAÇÃO OBRIGATÓRIA
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xjyvryag";
@@ -13,7 +13,7 @@ const QUESTIONS = [
   { q: "Quando alguém lhe pede um favor, como você se sente?", o: ["Sinto que não posso dizer não, mesmo que não queira fazer.", "Faço o favor, mas me sinto sobrecarregado.", "Pergunto a mim mesmo se posso ajudar de verdade.", "Avalio se posso ajudar sem comprometer meu tempo e energia."] },
   { q: "Qual é a sua reação ao receber uma boa notícia?", o: ["Não fico muito animado, é só mais um dia.", "Sinto alegria, mas logo volto à realidade.", "Fico feliz e compartilho com as pessoas que amo.", "Celebro e reflito sobre o que isso significa para mim."] },
   { q: "Quando você pensa em seus sonhos, qual é a sensação?", o: ["Não penso muito sobre isso, é só fantasia.", "Sinto que são distantes e difíceis de alcançar.", "Às vezes, imagino como seria realizá-los.", "Estou sempre planejando e buscando formas de realizá-los."] },
-  { q: "Como você se sente em relação ao seu passado?", o: ["Prefiro não pensar muito sobre isso.", "Sinto que muitas coisas me incomodam e não resolvi.", "Tentei aprender com o que vivi.", "Vejo meu passado como parte do meu crescimento e aceito."] },
+  { q: "Como você se sente em relação ao seu passado?", o: ["Prefiro não pensar muito sobre isso.", "Sinto que muitas coisas me incomodam e não resolvi.", "Tento aprender com o que vivi.", "Vejo meu passado como parte do meu crescimento e aceito."] },
   { q: "Como você se sente ao fazer planos para o futuro?", o: ["Não gosto de planejar, prefiro viver o dia a dia.", "Faço planos, mas geralmente desisto deles.", "Planejo, mas fico inseguro sobre realizar.", "Estou sempre criando metas e buscando alcançá-las."] },
   { q: "Quando você enfrenta um desafio, como geralmente se sente?", o: ["Sinto que é mais fácil desistir.", "Fico apreensivo e evito pensar nisso.", "Tento encontrar uma solução, mesmo que demore.", "Vejo isso como uma chance de crescer e me fortalecer."] },
   { q: "Como você se sente em relação à sua intuição?", o: ["Não costumo prestar atenção nela.", "Às vezes, ignoro o que sinto.", "Tento ouvir minha intuição, mas nem sempre confio.", "Acredito que minha intuição me guia e sigo o que sinto."] },
@@ -26,7 +26,7 @@ const QUESTIONS = [
   { q: "Como você reage a críticas ou feedbacks?", o: ["Ignoro e sigo em frente.", "Fico chateado e me preocupo com a opinião dos outros.", "Tento entender o que posso aprender com isso.", "Uso o feedback como um passo para meu crescimento pessoal."] },
   { q: "Quando você está em um impasse, como reage?", o: ["Desisto e deixo para lá.", "Faço algo rápido para não pensar mais nisso.", "Busco soluções e me esforço para resolver.", "Analiso a situação com calma e busco um aprendizado."] },
   { q: "Como você se sente ao compartilhar seus pensamentos com os outros?", o: ["Prefiro não falar sobre o que sinto.", "Fico nervoso, mas tento me abrir.", "Gosto de compartilhar, mas me preocupo com a opinião deles.", "Sinto que é importante compartilhar e sou autêntico."] },
-  { q: "Quando você se depara com um fracasso, como reage?", o: ["Fico desanimado e não quero tentar de novo.", "Sinto que é uma grande decepção e me culpo.", "Tentei entender o que deu errado e aprender com isso.", "Vejo o fracasso como parte do processo de crescimento."] },
+  { q: "Quando você se depara com um fracasso, como reage?", o: ["Fico desanimado e não quero tentar de novo.", "Sinto que é uma grande decepção e me culpo.", "Tento entender o que deu errado e aprender com isso.", "Vejo o fracasso como parte do processo de crescimento."] },
   { q: "Como você lida com o tempo livre?", o: ["Não sei o que fazer e acabo perdendo tempo.", "Faço o que aparece, mas não me sinto realizado.", "Busco atividades que me interessem, mas não sempre.", "Planejo meu tempo livre para me conectar comigo mesmo."] },
   { q: "Quando você se sente inseguro sobre algo, como costuma agir?", o: ["Evito a situação.", "Fico paralisado e não sei o que fazer.", "Tento buscar informações e me preparar.", "Aceito a insegurança e sigo em frente com coragem."] },
   { q: "Como você se sente ao olhar para suas conquistas?", o: ["Não tenho muitas e não me sinto bem.", "Lembro de algumas, mas não lhes dou importância.", "Fico feliz com o que consegui, mas quero mais.", "Sinto orgulho e reconheço meu esforço e crescimento."] },
@@ -405,21 +405,32 @@ function Paragraphs({ text, style }) {
 export default function App() {
   const [screen, setScreen] = useState("intro");
   const [current, setCurrent] = useState(0);
-  const [answers, setAnswers] = useState([]);
+  const [answers, setAnswers] = useState(() => Array(QUESTIONS.length).fill(null));
   const [lead, setLead] = useState({ nome: "", email: "", whatsapp: "" });
   const [sending, setSending] = useState(false);
   const [sendError, setSendError] = useState(false);
 
-  const score = answers.reduce((a, b) => a + b, 0);
+  const score = answers.reduce((a, b) => a + (b || 0), 0);
   const profile = getProfile(score || 25);
 
   function selectOption(points) {
-    const next = [...answers, points];
+    const next = [...answers];
+    next[current] = points;
     setAnswers(next);
+  }
+
+  function goNext() {
+    if (answers[current] == null) return;
     if (current + 1 < QUESTIONS.length) {
       setCurrent(current + 1);
     } else {
       setScreen("lead");
+    }
+  }
+
+  function goPrev() {
+    if (current > 0) {
+      setCurrent(current - 1);
     }
   }
 
@@ -428,7 +439,7 @@ export default function App() {
     setSending(true);
     setSendError(false);
     try {
-      const finalScore = answers.reduce((a, b) => a + b, 0);
+      const finalScore = answers.reduce((a, b) => a + (b || 0), 0);
       const finalProfile = getProfile(finalScore);
       const res = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
@@ -454,7 +465,7 @@ export default function App() {
   function restart() {
     setScreen("intro");
     setCurrent(0);
-    setAnswers([]);
+    setAnswers(Array(QUESTIONS.length).fill(null));
     setLead({ nome: "", email: "", whatsapp: "" });
     setSendError(false);
   }
@@ -475,7 +486,15 @@ export default function App() {
       {screen === "intro" && <Intro onStart={() => setScreen("quiz")} />}
 
       {screen === "quiz" && (
-        <Quiz index={current} question={QUESTIONS[current]} total={QUESTIONS.length} onSelect={selectOption} />
+        <Quiz
+          index={current}
+          question={QUESTIONS[current]}
+          total={QUESTIONS.length}
+          selected={answers[current]}
+          onSelect={selectOption}
+          onNext={goNext}
+          onPrev={goPrev}
+        />
       )}
 
       {screen === "lead" && (
@@ -529,8 +548,9 @@ function PathPreview() {
   );
 }
 
-function Quiz({ index, question, total, onSelect }) {
+function Quiz({ index, question, total, selected, onSelect, onNext, onPrev }) {
   const pct = (index / total) * 100;
+  const isLast = index === total - 1;
   return (
     <div style={styles.centerCol}>
       <div style={{ ...styles.card, maxWidth: 600 }}>
@@ -540,16 +560,53 @@ function Quiz({ index, question, total, onSelect }) {
         <p style={styles.progressLabel}>Pergunta {index + 1} de {total}</p>
         <h2 style={styles.question}>{question.q}</h2>
         <div style={{ display: "flex", flexDirection: "column", gap: 10, marginTop: 20 }}>
-          {question.o.map((opt, i) => (
+          {question.o.map((opt, i) => {
+            const isSelected = selected === i + 1;
+            return (
+              <button
+                key={i}
+                className="opt-btn"
+                style={{
+                  ...styles.optBtn,
+                  "--accent": "#C99A3D",
+                  "--accent-10": "#C99A3D1a",
+                  borderColor: isSelected ? "#C99A3D" : "#E7E3F0",
+                  background: isSelected ? "#C99A3D1a" : "#fff",
+                  fontWeight: isSelected ? 600 : 400,
+                }}
+                onClick={() => onSelect(i + 1)}
+              >
+                {opt}
+              </button>
+            );
+          })}
+        </div>
+
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 28 }}>
+          {index > 0 ? (
             <button
-              key={i}
-              className="opt-btn"
-              style={{ ...styles.optBtn, "--accent": "#C99A3D", "--accent-10": "#C99A3D1a" }}
-              onClick={() => onSelect(i + 1)}
+              className="cta-btn"
+              onClick={onPrev}
+              style={{ ...styles.ctaMain, marginTop: 0, background: "transparent", color: "#6B667D", border: "1px solid #DEDAE8", padding: "12px 20px" }}
             >
-              {opt}
+              <ArrowLeft size={18} /> Anterior
             </button>
-          ))}
+          ) : (
+            <span />
+          )}
+          <button
+            className="cta-btn"
+            onClick={onNext}
+            disabled={selected == null}
+            style={{
+              ...styles.ctaMain,
+              marginTop: 0,
+              opacity: selected == null ? 0.4 : 1,
+              cursor: selected == null ? "not-allowed" : "pointer",
+            }}
+          >
+            {isLast ? "Ver resultado" : "Próxima"} <ArrowRight size={18} />
+          </button>
         </div>
       </div>
     </div>
