@@ -74,46 +74,19 @@ Talvez seu primeiro passo não seja mudar nada agora.
 Talvez seja apenas começar a perceber:
 
 "Quantas coisas na minha vida eu realmente escolhi... e quantas eu apenas fui aceitando?"`,
-    perguntas: [
-      "Se eu te perguntasse agora o que na sua vida você faz porque realmente quer — e o que faz simplesmente porque sempre foi assim — você saberia separar?",
-      "Tem alguma situação que vive se repetindo e faz você pensar: \"Como eu vim parar aqui de novo?\"",
-      "E se tivesse que escolher uma única coisa que gostaria de começar a fazer diferente, você saberia qual seria?",
-    ],
-    depoisPerguntas: `Se você conseguiu responder com clareza, ótimo.
+    premiumTitulo: "DESCOBRIR QUE VOCÊ ESTÁ NO AUTOMÁTICO É SÓ A PRIMEIRA RESPOSTA.",
+    premiumTexto: `O que este resultado ainda não mostra é onde esse automático aparece com mais força na sua vida — e o que pode estar mantendo você nele.
 
-Talvez este resultado gratuito já tenha te mostrado exatamente o que precisava enxergar neste momento.
+Porque uma coisa é perceber depois.
 
-Mas se você travou em alguma dessas perguntas, não passe por isso rápido demais.
+Outra é enxergar enquanto ainda existe a possibilidade de escolher diferente.
 
-Porque talvez você tenha acabado de perceber uma coisa importante:
+No Resultado Premium — No Automático, você vai investigar suas repetições, identificar pontos que hoje podem passar despercebidos e usar o Mapa de Clareza Pessoal + exercícios práticos + experimento de 7 dias para transformar percepção em movimento.
 
-você sabe que existem partes da sua vida que já não combinam tanto com você...
+Seu resultado mostrou onde você está.
 
-mas ainda não consegue perceber direito onde está escolhendo e onde está apenas repetindo.
-
-E é justamente aí que existe uma próxima camada.`,
-    premiumTexto: `Se você quiser olhar isso mais de perto...
-
-Seu Resultado Premium — No Automático não foi feito para mandar você mudar sua vida inteira.
-
-Muito pelo contrário.
-
-Ele foi pensado para ajudar você a enxergar aquelas situações que hoje acontecem tão rápido que você só percebe depois.
-
-Aquele "sim" que saiu antes de você pensar.
-
-Aquela coisa que você continua adiando.
-
-Aquele incômodo que você ignora.
-
-Aquela decisão que vai sendo empurrada porque deixar tudo como está parece mais fácil.
-
-Você vai poder observar onde seu automático aparece com mais força, construir seu Mapa de Clareza, experimentar pequenas pausas antes de responder e começar a perceber emoções e escolhas que talvez hoje passem despercebidas.
-
-Não para virar outra pessoa.
-
-Para começar a participar mais da própria vida.`,
-    botao: "QUERO COMEÇAR A PERCEBER",
+Agora descubra o que talvez você ainda não esteja vendo.`,
+    botao: "QUERO DESCOBRIR O QUE AINDA NÃO ESTOU VENDO",
     checkout: "https://pay.kiwify.com.br/ai8EDtg",
   },
   {
@@ -157,50 +130,19 @@ Seu resultado não está dizendo que você precisa largar tudo, mudar sua vida a
 Talvez o primeiro passo seja bem mais simples:
 
 começar a perceber onde, no meio de tanta coisa e tanta gente, você foi deixando você mesma para depois.`,
-    perguntas: [
-      "Se eu te perguntasse hoje: \"O que mais está te cansando na sua vida?\" Você saberia responder?",
-      "E você consegue perceber o que você mesma continua fazendo, mesmo vendo que aquilo só te deixa ainda mais cansada?",
-      "Agora imagine que você pudesse mudar uma única coisa para começar a se colocar um pouco mais na sua própria vida. Você saberia o que mudar?",
-    ],
-    depoisPerguntas: `Se as respostas vieram com facilidade, ótimo.
+    premiumTitulo: "DESCOBRIR QUE VOCÊ ESTÁ SOBREVIVENDO É SÓ A PRIMEIRA RESPOSTA.",
+    premiumTexto: `O que este resultado ainda não mostra é o que pode estar fazendo você continuar carregando tanto — mesmo sabendo o quanto isso está te custando.
 
-Talvez você já tenha clareza suficiente para começar por conta própria.
+Porque uma coisa é perceber que está cansada.
 
-Mas se apareceu aquele "eu nem sei por onde começar"... preste atenção nisso.
+Outra é enxergar o que continua colocando você por último.
 
-Porque às vezes a gente sabe que está cansada.
+No Resultado Premium — Sobrevivendo, você vai investigar o que vem assumindo, perceber onde culpa, excesso de responsabilidade e dificuldade de colocar limites podem estar pesando e usar o Mapa de Clareza Pessoal + exercícios práticos + experimento de 7 dias para encontrar um próximo movimento possível.
 
-Sabe que não quer continuar do mesmo jeito.
+Seu resultado mostrou o peso.
 
-Só ainda não consegue perceber o que precisa parar de carregar, onde precisa colocar um limite ou por que continua assumindo tudo outra vez.
-
-E existe uma diferença enorme entre:
-
-"Eu sei que estou cansada."
-
-e
-
-"Agora eu consigo enxergar o que está acontecendo comigo."`,
-    premiumTexto: `Se você quiser entender melhor de onde começar...
-
-Seu Resultado Premium — Sobrevivendo começa justamente aí.
-
-Ele não vai dizer para você "se priorizar mais" e encerrar o assunto.
-
-Você vai olhar para aquilo que vem carregando, para os "sins" que dá quando queria dizer "não", para a culpa que aparece quando tenta se escolher e para coisas que talvez tenha assumido como se fossem obrigação sua.
-
-E poderá separar melhor:
-
-o que realmente precisa de você, o que pode ser dividido, o que pode esperar e o que talvez nem precise continuar nas suas costas.
-
-Até aquele enorme:
-
-"Eu preciso mudar minha vida."
-
-começar a se transformar em algo bem mais possível:
-
-"Entendi. É por aqui que eu posso começar."`,
-    botao: "QUERO ME COLOCAR DE VOLTA NA MINHA VIDA",
+Agora descubra o que pode estar mantendo você debaixo dele.`,
+    botao: "QUERO DESCOBRIR O QUE ESTÁ ME MANTENDO AQUI",
     checkout: "https://pay.kiwify.com.br/dqE5eYl",
   },
   {
@@ -256,38 +198,19 @@ Talvez você não precise descobrir mais cinquenta coisas sobre você agora.
 Talvez precise perceber:
 
 "Daquilo que eu já sei sobre mim... o que eu ainda não estou conseguindo colocar em prática?"`,
-    perguntas: [
-      "Você já entendeu várias coisas sobre você. Mas qual delas você ainda continua repetindo, mesmo sabendo que aquilo não te ajuda?",
-      "Quando chega a hora de fazer diferente... o que geralmente faz você voltar atrás?",
-      "E se eu tirasse da mesa estudar mais, pesquisar mais, assistir mais alguma coisa ou pensar mais um pouco e perguntasse: \"Qual é a próxima atitude concreta que você precisa tomar?\" Você saberia responder?",
-    ],
-    depoisPerguntas: `Se sim, maravilhoso.
+    premiumTitulo: "DESCOBRIR QUE VOCÊ ESTÁ DESPERTANDO É SÓ A PRIMEIRA RESPOSTA.",
+    premiumTexto: `O que este resultado ainda não mostra é o que pode estar acontecendo entre tudo o que você já percebeu — e aquilo que ainda não consegue fazer diferente.
 
-Talvez você já tenha exatamente o que precisa para experimentar um movimento diferente.
+Porque uma coisa é entender.
 
-Mas se percebeu que sabe explicar muito bem o que acontece com você e, mesmo assim, não sabe o que fazer quando a situação acontece de verdade... aí existe uma pista importante.
+Outra é conseguir agir diferente quando a vida acontece de verdade.
 
-Talvez não esteja faltando mais informação.
+No Resultado Premium — Despertando, você vai investigar onde essa distância aparece, escolher um padrão de cada vez e usar o Mapa de Clareza Pessoal + exercícios práticos + experimento de 7 dias para transformar percepção em movimento.
 
-Talvez esteja faltando transformar o que você já entendeu em alguma coisa que consiga viver.`,
-    premiumTexto: `Se você está cansada de só entender...
+Seu resultado mostrou o que você já percebe.
 
-Seu Resultado Premium — Despertando não foi criado para jogar mais informação em cima de você.
-
-A proposta é justamente o contrário.
-
-Você vai escolher um padrão de cada vez, perceber quando ele aparece e começar a testar pequenas respostas diferentes na vida real.
-
-Porque talvez o que esteja faltando agora não seja mais uma explicação sobre por que você é assim.
-
-Talvez seja aprender a atravessar aquele momento em que você pensa:
-
-"Eu sei o que deveria fazer..."
-
-e, dessa vez...
-
-faz alguma coisa diferente.`,
-    botao: "QUERO TRANSFORMAR O QUE SEI EM AÇÃO",
+Agora descubra o que pode estar faltando para levar isso para a vida.`,
+    botao: "QUERO DESCOBRIR O QUE EXISTE ENTRE SABER E FAZER",
     checkout: "https://pay.kiwify.com.br/6lHlycF",
   },
   {
@@ -349,40 +272,19 @@ Nunca mais voltar a um comportamento antigo.
 Talvez agora a pergunta seja:
 
 "Será que estou usando tudo o que aprendi sobre mim para viver com mais liberdade... ou para me cobrar ainda mais?"`,
-    perguntas: [
-      "Tudo o que aprendeu sobre si tem feito sua vida ficar mais leve... ou mais cheia de regras sobre como você deveria ser?",
-      "Quando uma emoção ou comportamento antigo volta, você consegue pensar: \"Tudo bem, isso apareceu de novo.\" Ou sua primeira reação é: \"Eu já deveria ter superado isso\"?",
-      "E existe alguma área da sua vida em que talvez você não precise evoluir mais, entender mais ou melhorar mais... mas simplesmente se permitir ser humana?",
-    ],
-    depoisPerguntas: `Se essas respostas estão claras, ótimo.
+    premiumTitulo: "CHEGAR AO CAMINHO REAL NÃO SIGNIFICA QUE NÃO EXISTA MAIS NADA PARA PERCEBER.",
+    premiumTexto: `O que este resultado ainda não mostra é onde a busca por crescer e se conhecer pode estar se transformando, sem você perceber, em cobrança.
 
-Continue colocando isso na vida.
+Porque uma coisa é usar consciência para crescer.
 
-Mas se alguma dessas perguntas te incomodou um pouquinho... talvez valha não correr para resolver o incômodo.
+Outra é começar a usá-la para exigir mais de si.
 
-Porque chega uma hora em que autoconhecimento não significa descobrir mais uma coisa para consertar.
+No Resultado Premium — Caminho Real, você vai investigar onde isso pode estar acontecendo e usar o Mapa de Clareza Pessoal + exercícios práticos + experimento de 7 dias para viver o que já aprendeu sobre si com mais liberdade e menos cobrança.
 
-Às vezes significa perceber onde até a vontade de crescer virou uma maneira de se cobrar.`,
-    premiumTexto: `Talvez seu próximo passo não seja "evoluir mais".
+Seu resultado mostrou o quanto você já percebe.
 
-Seu Resultado Premium — Caminho Real não é uma nova lista de coisas que você precisa melhorar.
-
-Ele convida você a perceber onde aquela vontade bonita de crescer, se conhecer e fazer melhor pode ter começado, sem perceber, a virar:
-
-"Eu deveria saber."
-
-"Eu não posso voltar."
-
-"Eu preciso lidar melhor."
-
-Você vai observar onde existe crescimento de verdade e onde talvez exista cobrança disfarçada de autoconhecimento.
-
-Vai experimentar momentos em que não existe nada para corrigir, trabalhar ou melhorar.
-
-E talvez descubra que seu próximo passo não seja se transformar em uma versão ainda "melhor" de você.
-
-Pode ser conseguir viver tudo o que já aprendeu sobre si com um pouco mais de liberdade, flexibilidade e humanidade.`,
-    botao: "QUERO CRESCER COM MAIS LEVEZA",
+Agora descubra onde talvez até a sua consciência esteja pesando mais do que deveria.`,
+    botao: "QUERO DESCOBRIR ONDE CONSCIÊNCIA VIROU COBRANÇA",
     checkout: "https://pay.kiwify.com.br/EmsPGr0",
   },
 ];
@@ -645,25 +547,8 @@ function Result({ profile, onRestart, sendError }) {
 
         <Paragraphs text={profile.resultadoGratuito} />
 
-        <div style={styles.section}>
-          <p style={{ ...styles.body, fontStyle: "italic", color: "#8B87A0" }}>Antes de você fechar este resultado...</p>
-          <p style={{ ...styles.body, fontStyle: "italic", color: "#8B87A0" }}>Quero te fazer três perguntas. Não precisa responder para mim. Responda para você.</p>
-        </div>
-
-        <div style={{ display: "flex", flexDirection: "column", gap: 18, marginTop: 20 }}>
-          {profile.perguntas.map((pergunta, i) => (
-            <div key={i} style={styles.perguntaBox}>
-              <span style={{ ...styles.perguntaNum, color: profile.cor }}>{i + 1}</span>
-              <p style={{ ...styles.body, fontWeight: 500, color: "#2A2640" }}>{pergunta}</p>
-            </div>
-          ))}
-        </div>
-
-        <div style={{ marginTop: 26 }}>
-          <Paragraphs text={profile.depoisPerguntas} />
-        </div>
-
         <div style={{ ...styles.premiumCard, background: `linear-gradient(135deg, ${profile.cor}12, ${profile.cor}04)`, borderColor: profile.cor + "35" }}>
+          <p style={{ ...styles.question, color: profile.cor, fontSize: 19, marginBottom: 14 }}>{profile.premiumTitulo}</p>
           <Paragraphs text={profile.premiumTexto} />
 
           <div style={{ marginTop: 20, textAlign: "center" }}>
