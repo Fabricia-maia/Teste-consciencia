@@ -1,307 +1,446 @@
 import { useState } from "react";
 import { ArrowRight, ArrowLeft, RotateCcw } from "lucide-react";
 
-// ⚠️ CONFIGURAÇÃO OBRIGATÓRIA
+// CONFIGURAÇÃO PRESERVADA
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xjyvryag";
 
 const QUESTIONS = [
-  { q: "Quando você se sente desmotivado, o que costuma fazer?", o: ["Aceito e fico parado, esperando passar.", "Tento me forçar a fazer algo, mesmo sem vontade.", "Busco atividades que possam me animar.", "Reflito sobre o que me desmotiva e busco mudanças."] },
-  { q: "Como você lida com a mudança?", o: ["Prefiro que tudo fique como está, mudanças me assustam.", "Fico resistente, mas acabo me adaptando.", "Tento ver o lado positivo, mas tenho dificuldade.", "Vejo a mudança como uma oportunidade de crescimento."] },
-  { q: "Quando alguém discorda de você, você:", o: ["Ignoro e sigo em frente, como se nada tivesse acontecido.", "Fico chateado e não gosto de ser contrariado.", "Ouço o que a pessoa tem a dizer, mas não mudo de opinião.", "Estou aberto a ouvir e considerar outros pontos de vista."] },
-  { q: "Você costuma reservar um tempo para si mesmo?", o: ["Não, sempre estou ocupado com outras coisas.", "Às vezes, mas me sinto culpado por isso.", "Faço isso de vez em quando, mas não é uma prioridade.", "Considero essencial e faço questão de ter esse tempo."] },
-  { q: "Como você se comporta quando alguém compartilha um problema com você?", o: ["Não sei o que dizer, então fico quieto.", "Tento ajudar, mas fico nervoso.", "Ouço atentamente e ofereço conselhos quando posso.", "Busco entender profundamente e ofereço apoio genuíno."] },
-  { q: "Quando alguém lhe pede um favor, como você se sente?", o: ["Sinto que não posso dizer não, mesmo que não queira fazer.", "Faço o favor, mas me sinto sobrecarregado.", "Pergunto a mim mesmo se posso ajudar de verdade.", "Avalio se posso ajudar sem comprometer meu tempo e energia."] },
-  { q: "Qual é a sua reação ao receber uma boa notícia?", o: ["Não fico muito animado, é só mais um dia.", "Sinto alegria, mas logo volto à realidade.", "Fico feliz e compartilho com as pessoas que amo.", "Celebro e reflito sobre o que isso significa para mim."] },
-  { q: "Quando você pensa em seus sonhos, qual é a sensação?", o: ["Não penso muito sobre isso, é só fantasia.", "Sinto que são distantes e difíceis de alcançar.", "Às vezes, imagino como seria realizá-los.", "Estou sempre planejando e buscando formas de realizá-los."] },
-  { q: "Como você se sente em relação ao seu passado?", o: ["Prefiro não pensar muito sobre isso.", "Sinto que muitas coisas me incomodam e não resolvi.", "Tento aprender com o que vivi.", "Vejo meu passado como parte do meu crescimento e aceito."] },
-  { q: "Como você se sente ao fazer planos para o futuro?", o: ["Não gosto de planejar, prefiro viver o dia a dia.", "Faço planos, mas geralmente desisto deles.", "Planejo, mas fico inseguro sobre realizar.", "Estou sempre criando metas e buscando alcançá-las."] },
-  { q: "Quando você enfrenta um desafio, como geralmente se sente?", o: ["Sinto que é mais fácil desistir.", "Fico apreensivo e evito pensar nisso.", "Tento encontrar uma solução, mesmo que demore.", "Vejo isso como uma chance de crescer e me fortalecer."] },
-  { q: "Como você se sente em relação à sua intuição?", o: ["Não costumo prestar atenção nela.", "Às vezes, ignoro o que sinto.", "Tento ouvir minha intuição, mas nem sempre confio.", "Acredito que minha intuição me guia e sigo o que sinto."] },
-  { q: "Como você se sente quando alguém elogia seu trabalho?", o: ["Não dou muita importância.", "Agradeço, mas não me sinto merecedor.", "Fico feliz e reconheço o elogio.", "Uso isso como motivação para continuar melhorando."] },
-  { q: "Quando você está em grupo, como costuma agir?", o: ["Fico quieto e deixo os outros falarem.", "Tento me envolver, mas às vezes me sinto deslocado.", "Participo das conversas e compartilho minhas opiniões.", "Gosto de liderar e estimular os outros a falarem."] },
-  { q: "Quando você está estressado, como costuma reagir?", o: ["Ignoro e sigo em frente, mesmo que me sinta mal.", "Fico irritado e acabo descontando em quem está perto.", "Tento encontrar um jeito de relaxar, como ouvir música ou sair.", "Faço uma pausa para refletir e encontrar soluções."] },
-  { q: "Você costuma alimentar sua mente e emoções?", o: ["Não me preocupo com isso.", "Às vezes, leio ou assisto algo, mas sem foco.", "Procuro conteúdos que me inspirem e me façam refletir.", "Pratico atividades que nutrem minha mente e alma, como meditação ou leitura."] },
-  { q: "Como você se sente ao final do dia?", o: ["Apenas estou feliz que o dia acabou.", "Sinto que não fiz o suficiente e me preocupo.", "Reflito sobre o que poderia ter feito diferente.", "Avalio meu dia e planejo como posso melhorar amanhã."] },
-  { q: "Qual a sua abordagem em relação a relacionamentos interpessoais?", o: ["Não me envolvo muito, prefiro não pensar sobre isso.", "Sinto que estou sempre disponível para os outros, mas sem satisfação.", "Busco entender melhor as dinâmicas dos meus relacionamentos.", "Invisto tempo e energia em relacionamentos que me fazem crescer."] },
-  { q: "Como você reage a críticas ou feedbacks?", o: ["Ignoro e sigo em frente.", "Fico chateado e me preocupo com a opinião dos outros.", "Tento entender o que posso aprender com isso.", "Uso o feedback como um passo para meu crescimento pessoal."] },
-  { q: "Quando você está em um impasse, como reage?", o: ["Desisto e deixo para lá.", "Faço algo rápido para não pensar mais nisso.", "Busco soluções e me esforço para resolver.", "Analiso a situação com calma e busco um aprendizado."] },
-  { q: "Como você se sente ao compartilhar seus pensamentos com os outros?", o: ["Prefiro não falar sobre o que sinto.", "Fico nervoso, mas tento me abrir.", "Gosto de compartilhar, mas me preocupo com a opinião deles.", "Sinto que é importante compartilhar e sou autêntico."] },
-  { q: "Quando você se depara com um fracasso, como reage?", o: ["Fico desanimado e não quero tentar de novo.", "Sinto que é uma grande decepção e me culpo.", "Tento entender o que deu errado e aprender com isso.", "Vejo o fracasso como parte do processo de crescimento."] },
-  { q: "Como você lida com o tempo livre?", o: ["Não sei o que fazer e acabo perdendo tempo.", "Faço o que aparece, mas não me sinto realizado.", "Busco atividades que me interessem, mas não sempre.", "Planejo meu tempo livre para me conectar comigo mesmo."] },
-  { q: "Quando você se sente inseguro sobre algo, como costuma agir?", o: ["Evito a situação.", "Fico paralisado e não sei o que fazer.", "Tento buscar informações e me preparar.", "Aceito a insegurança e sigo em frente com coragem."] },
-  { q: "Como você se sente ao olhar para suas conquistas?", o: ["Não tenho muitas e não me sinto bem.", "Lembro de algumas, mas não lhes dou importância.", "Fico feliz com o que consegui, mas quero mais.", "Sinto orgulho e reconheço meu esforço e crescimento."] },
+  { dimension: "perceber", q: "Quando percebe que não está bem emocionalmente, o que costuma fazer?", o: ["Tento seguir normalmente e não penso muito nisso.", "Tento entender o que estou sentindo e o que estou precisando naquele momento.", "Sei que não estou bem, mas nem sempre consigo entender o que estou sentindo.", "Tento identificar o que estou sentindo e o que pode ter mexido comigo."] },
+  { dimension: "perceber", q: "Quando pensa no que quer para a sua vida, o que mais acontece?", o: ["Sei o que faz sentido para mim e considero isso quando faço minhas escolhas.", "Tenho percebido melhor o que faz sentido para mim, mesmo com algumas dúvidas.", "Quase nunca paro para pensar no que eu realmente quero.", "Sei mais o que esperam de mim do que aquilo que eu quero."] },
+  { dimension: "perceber", structural: true, q: "Quando você reage de um jeito que depois costuma se arrepender, em que momento geralmente percebe o que está acontecendo?", o: ["Às vezes percebo a tempo e consigo reagir de outro jeito.", "Percebo durante a situação, mas nem sempre consigo parar.", "Quando percebo o que está acontecendo, consigo parar antes de continuar reagindo.", "Geralmente só percebo depois que tudo já aconteceu."] },
+  { dimension: "compreender", structural: true, q: "Quando uma situação do presente mexe muito com você, o que costuma acontecer?", o: ["Percebo que aquilo mexeu muito comigo, mas nem sempre entendo por quê.", "Reajo ao que aconteceu e geralmente fica por isso mesmo.", "Tento perceber se minha reação tem relação com alguma coisa que já vivi.", "Tento entender de onde vem minha reação antes de decidir o que fazer."] },
+  { dimension: "compreender", structural: true, q: "Quando percebe que está repetindo uma situação que já te fez mal antes, o que costuma acontecer?", o: ["Quando reconheço o padrão, tento fazer diferente antes de repetir tudo de novo.", "Percebo que estou repetindo, mas não sei muito bem como fazer diferente.", "Tento entender o que me leva a repetir e começo a mudar algumas atitudes.", "Geralmente só percebo quando tudo já aconteceu de novo."] },
+  { dimension: "compreender", structural: true, q: "Quando algo dá errado em uma situação em que você também estava envolvido, o que costuma fazer?", o: ["Penso primeiro no que a outra pessoa ou a situação fez dar errado.", "Reconheço o que foi minha parte e penso no que posso fazer diferente numa próxima vez.", "Fico pensando no que eu deveria ter feito diferente e acabo me culpando.", "Tento separar o que dependia de mim daquilo que não dependia."] },
+  { dimension: "compreender", q: "Quando alguém faz uma crítica sobre você, o que costuma acontecer?", o: ["Fico incomodado e continuo pensando no que a pessoa disse.", "Minha primeira reação é me defender ou explicar por que fiz aquilo.", "Penso no que foi dito e, se fizer sentido, revejo minha atitude.", "Tento avaliar se existe alguma verdade no que ouvi."] },
+  { dimension: "escolher", structural: true, q: "Quando alguém te pede algo que você não gostaria de fazer, o que costuma acontecer?", o: ["Penso no que quero antes de responder, mas às vezes acabo cedendo.", "Aceito para não desagradar, mesmo ficando incomodado depois.", "Acabo aceitando antes mesmo de pensar se quero fazer aquilo.", "Antes de responder, penso se quero e se posso fazer aquilo."] },
+  { dimension: "escolher", structural: true, q: "Quando percebe que sua vida não está indo na direção que gostaria, o que costuma fazer?", o: ["Penso bastante em mudar, mas acabo adiando.", "Revejo o que está ao meu alcance e começo por alguma coisa que posso mudar.", "Vou levando e espero que as coisas melhorem.", "Começo a mudar algumas coisas, mesmo sem saber ainda qual é o melhor caminho."] },
+  { dimension: "escolher", structural: true, q: "Quando está muito irritado, magoado ou preocupado e precisa tomar uma decisão, o que costuma fazer?", o: ["Tento entender o que estou sentindo antes de decidir.", "Prefiro esperar um pouco para conseguir pensar melhor.", "Acabo decidindo na hora, muito levado pelo que estou sentindo.", "Tento deixar o que estou sentindo de lado e decido assim mesmo."] },
+  { dimension: "escolher", anchor: true, q: "Quando precisa tomar uma decisão importante e não tem certeza do que fazer, o que costuma acontecer?", o: ["Vou adiando porque tenho medo de escolher errado.", "Avalio o que sei naquele momento e faço uma escolha.", "Escolho com o que sei naquele momento e, se precisar, ajusto depois.", "Penso em tantas possibilidades que tenho dificuldade de decidir."] },
+  { dimension: "sustentar", anchor: true, q: "Depois de fazer uma escolha importante para você que desagradou alguém, o que costuma acontecer?", o: ["Fico desconfortável, mas tento lembrar por que fiz aquela escolha.", "Fico tão mal que muitas vezes acabo voltando atrás.", "Mantenho minha escolha, mas fico me culpando por bastante tempo.", "O desconforto existe, mas mantenho minha escolha enquanto ela continuar fazendo sentido para mim."] },
+  { dimension: "sustentar", structural: true, q: "Quando entra em conflito com alguém importante para você, o que costuma fazer?", o: ["Tento entender os dois lados e digo o que é importante para mim.", "Tento entender o lado da pessoa sem esquecer o meu.", "Tento fazer a pessoa entender o meu lado.", "Acabo cedendo para evitar que a situação piore."] },
+  { dimension: "sustentar", structural: true, q: "Quando percebe que uma decisão que tomou não foi boa para você, o que costuma fazer?", o: ["Reavalio a situação e considero mudar de decisão.", "Continuo com a decisão porque já escolhi e não gosto de voltar atrás.", "Penso em voltar atrás, mas tenho dificuldade de fazer isso.", "Se percebo que aquela decisão não faz mais sentido, mudo o rumo."] },
+  { dimension: "sustentar", anchor: true, q: "Quando decide mudar um comportamento antigo, o que costuma acontecer depois de um tempo?", o: ["Acabo voltando ao que fazia antes e muitas vezes só percebo depois.", "Às vezes volto ao comportamento antigo, mas consigo perceber e começar de novo.", "Quando percebo que voltei ao comportamento antigo, tento retomar a mudança.", "Percebo que voltei ao comportamento antigo, mas tenho dificuldade de sair dele novamente."] },
+  { dimension: "sustentar", structural: true, q: "Quando percebe que uma atitude sua prejudicou alguém, o que costuma fazer?", o: ["Reconheço que errei, mas tenho dificuldade de falar sobre isso com a pessoa.", "Tenho dificuldade de reconhecer que errei.", "Reconheço meu erro e procuro reparar o que aconteceu.", "Procuro reparar o que aconteceu e penso no que preciso fazer diferente dali para frente."] },
 ];
 
-const PROFILES = [
-  {
-    key: "automatico",
-    min: 25, max: 43,
-    nome: "No Automático",
-    cor: "#8B5A6B",
-    titulo: "SEU RESULTADO: NO AUTOMÁTICO",
+// Matriz congelada: índice da alternativa visível (A/B/C/D) -> N0/N1/N2/N3
+const LEVEL_MATRIX = [
+  [0,3,1,2], [3,2,0,1], [2,1,3,0], [1,0,2,3],
+  [3,1,2,0], [0,3,1,2], [1,0,3,2], [2,1,0,3],
+  [1,3,0,2], [3,2,0,1], [0,2,3,1], [2,0,1,3],
+  [3,2,1,0], [2,0,1,3], [0,3,2,1], [1,0,2,3],
+];
+
+const PROFILES = {
+  automatico: {
+    key: "automatico", nome: "No Automático", cor: "#8B5A6B",
     resultadoGratuito: `Sabe quando os dias vão passando e você simplesmente vai fazendo?
 
 Acorda, resolve o que aparece, responde o que precisa, aceita algumas coisas, deixa outras para depois... e segue.
 
 Só que, de vez em quando, bate aquela sensação:
 
-"Como foi que minha vida veio parar aqui?"
+“Como foi que minha vida veio parar aqui?”
 
 Talvez você nem esteja exatamente infeliz.
 
-Mas também pode fazer tempo que você não para de verdade para se perguntar:
+Mas algumas coisas podem estar acontecendo tão no automático que você só percebe depois.
 
-"É isso que eu quero?"
+Depois que disse “sim” e percebeu que queria ter dito “não”.
 
-"Isso ainda faz sentido para mim?"
+Depois que reagiu de um jeito e pensou: “Por que eu fiz isso de novo?”
 
-"Ou eu só continuo fazendo porque sempre fiz assim?"
+Depois que uma situação se repetiu.
 
-Talvez você diga "sim" e só depois perceba que queria ter dito "não".
+Depois que o incômodo ficou grande demais para continuar ignorando.
 
-Talvez alguma coisa incomode, mas você vá deixando... deixando... até chegar uma hora em que não dá mais.
+E não significa que você não pense sobre a própria vida.
 
-Talvez mudar pareça tão trabalhoso que você prefira continuar como está.
+O ponto pode ser outro:
 
-Ou talvez, quando alguém pergunta o que você realmente quer, você perceba que nem sabe muito bem o que responder.
+muitas vezes você percebe o que estava acontecendo quando já aconteceu.
 
-E isso não significa que você não se conhece ou que não se importa com a própria vida.
+Enquanto isso, o costume, a pressa, aquilo que esperam de você ou simplesmente o jeito que sempre fez acabam decidindo primeiro.
 
-Às vezes a gente simplesmente passa tanto tempo fazendo o que precisa ser feito que para de perguntar se aquilo ainda combina com a gente.
+E é assim que algumas coisas vão permanecendo.
 
-Talvez seu primeiro passo não seja mudar nada agora.
+Não necessariamente porque você escolheu continuar.
 
-Talvez seja apenas começar a perceber:
+Mas porque talvez ainda não tenha existido espaço suficiente entre o que acontece e a sua resposta.
 
-"Quantas coisas na minha vida eu realmente escolhi... e quantas eu apenas fui aceitando?"`,
-    premiumTitulo: "DESCOBRIR QUE VOCÊ ESTÁ NO AUTOMÁTICO É SÓ A PRIMEIRA RESPOSTA.",
-    premiumTexto: `O que este resultado ainda não mostra é onde esse automático aparece com mais força na sua vida — e o que pode estar mantendo você nele.
+Por isso, seu primeiro movimento não precisa ser mudar sua vida inteira.
 
-Porque uma coisa é perceber depois.
+Pode ser muito menor — e muito mais importante:
 
-Outra é enxergar enquanto ainda existe a possibilidade de escolher diferente.
+começar a perceber antes.
 
-No Resultado Premium — No Automático, você vai investigar suas repetições, identificar pontos que hoje podem passar despercebidos e usar o Mapa de Clareza Pessoal + exercícios práticos + experimento de 7 dias para transformar percepção em movimento.
+Antes do “sim”.
+Antes da reação.
+Antes de repetir.
+Antes de simplesmente seguir.
 
-Seu resultado mostrou onde você está.
+Porque talvez a pergunta agora não seja:
+“O que eu preciso mudar?”
 
-Agora descubra o que talvez você ainda não esteja vendo.`,
-    botao: "QUERO DESCOBRIR O QUE AINDA NÃO ESTOU VENDO",
+Talvez seja:
+“O que eu começaria a escolher diferente se conseguisse perceber enquanto ainda posso escolher?”`,
+    premiumTitulo: "E SE O AUTOMÁTICO ESTIVER DECIDINDO MAIS COISAS POR VOCÊ DO QUE VOCÊ IMAGINA?",
+    premiumTexto: `Você acabou de reconhecer um movimento importante.
+
+Mas saber que ele existe é diferente de começar a enxergar como ele pode aparecer nas situações comuns da sua vida.
+
+Porque o automático raramente chega dizendo: “Oi, sou eu escolhendo por você.” 😂
+
+Ele aparece nas pequenas coisas: na resposta que sai rápido demais, no “sim” que vem antes da pergunta “eu quero?”, na situação que se repete e parece apenas azar, na reação que só faz sentido depois.
+
+E quanto mais familiar um padrão é, mais fácil é confundi-lo com: “Eu sou assim mesmo.”
+
+Foi por isso que eu criei o Resultado Premium — No Automático.
+
+Para você não ficar apenas com o nome do seu perfil, mas ter um material para aprofundá-lo, reconhecer como esse funcionamento pode aparecer na vida real e começar a observar aquilo que hoje ainda passa rápido demais.
+
+Porque talvez você não precise mudar tudo.
+
+Talvez precise começar a enxergar o que acontece antes da repetição.`,
+    botao: "QUERO ENXERGAR ALÉM DO AUTOMÁTICO",
     checkout: "https://pay.kiwify.com.br/ai8EDtg",
   },
-  {
-    key: "sobrevivendo",
-    min: 44, max: 62,
-    nome: "Sobrevivendo",
-    cor: "#B06A3E",
-    titulo: "SEU RESULTADO: SOBREVIVENDO",
-    resultadoGratuito: `Você é aquela pessoa que vai fazendo o que precisa ser feito.
+  sobrevivendo: {
+    key: "sobrevivendo", nome: "Sobrevivendo", cor: "#B06A3E",
+    resultadoGratuito: `Você já percebe que alguma coisa não está bem.
 
-Resolve uma coisa aqui, outra ali, ajuda alguém, responde mensagem, cuida do trabalho, da casa, da família...
+Talvez seja uma situação que se repete.
 
-e quando percebe:
+Uma relação que pesa.
 
-o dia acabou e você ficou por último de novo.
+Uma rotina que já não faz sentido.
 
-Talvez você até pense:
+Um limite que você sabe que precisa colocar.
 
-"Eu sei que não dá para continuar assim."
+Ou simplesmente aquela sensação de:
 
-Mas no dia seguinte acorda e começa tudo outra vez.
+“Eu não quero continuar desse jeito.”
 
-Não porque você não queira mudar.
+O problema é que perceber isso nem sempre significa saber o que fazer com isso.
 
-Às vezes você está tão ocupada tentando dar conta da vida que nem sabe por onde começar a cuidar da sua.
+Você sente o incômodo.
 
-Você está cansada, mas continua porque "tem coisa para fazer".
+Pensa sobre ele.
 
-Diz "sim" mesmo querendo dizer "não", só para evitar problema ou não decepcionar alguém.
+Talvez reclame, tente mudar alguma coisa, prometa para si mesmo que dessa vez vai ser diferente...
 
-Pensa que vai descansar depois que resolver tudo...
+mas, quando a vida acontece de verdade, acaba entrando no mesmo funcionamento outra vez.
 
-mas esse "depois" quase nunca chega.
+Diz “sim” querendo dizer “não”.
 
-E talvez o mais complicado seja isto:
+Vai adiando uma decisão.
 
-você se acostumou tanto a dar conta que pode nem perceber o quanto está cansada de ter que dar conta.
+Continua carregando coisas que já percebeu que estão pesadas.
 
-Seu resultado não está dizendo que você precisa largar tudo, mudar sua vida amanhã ou pensar mais positivo.
+Reage do mesmo jeito e depois pensa:
 
-Talvez o primeiro passo seja bem mais simples:
+“Eu sabia que isso ia acontecer.”
 
-começar a perceber onde, no meio de tanta coisa e tanta gente, você foi deixando você mesma para depois.`,
-    premiumTitulo: "DESCOBRIR QUE VOCÊ ESTÁ SOBREVIVENDO É SÓ A PRIMEIRA RESPOSTA.",
-    premiumTexto: `O que este resultado ainda não mostra é o que pode estar fazendo você continuar carregando tanto — mesmo sabendo o quanto isso está te custando.
+E é aí que o Sobrevivendo é diferente do No Automático.
 
-Porque uma coisa é perceber que está cansada.
+Você já percebe que existe alguma coisa acontecendo.
 
-Outra é enxergar o que continua colocando você por último.
+Só que ainda pode ser difícil enxergar com clareza o que mantém você preso nisso.
 
-No Resultado Premium — Sobrevivendo, você vai investigar o que vem assumindo, perceber onde culpa, excesso de responsabilidade e dificuldade de colocar limites podem estar pesando e usar o Mapa de Clareza Pessoal + exercícios práticos + experimento de 7 dias para encontrar um próximo movimento possível.
+Às vezes parece que o problema está na situação.
+Na outra pessoa.
+Na falta de tempo.
+Nas responsabilidades.
+No medo de decepcionar.
 
-Seu resultado mostrou o peso.
+E sim, tudo isso pode ter peso.
 
-Agora descubra o que pode estar mantendo você debaixo dele.`,
-    botao: "QUERO DESCOBRIR O QUE ESTÁ ME MANTENDO AQUI",
+Mas existe uma pergunta que começa a abrir outra porta:
+
+“O que eu continuo fazendo, aceitando ou adiando que também ajuda essa situação a continuar como está?”
+
+Não para se culpar.
+
+Mas para começar a encontrar aquilo que realmente está nas suas mãos.
+
+Porque existe uma diferença enorme entre perceber:
+
+“Isso está me fazendo mal.”
+
+e conseguir enxergar:
+
+“Agora estou começando a entender como isso continua acontecendo na minha vida.”
+
+E talvez seja exatamente aí que você esteja.
+
+Não sem perceber.
+Não sem querer mudar.
+
+Mas tentando descobrir onde começa a sua parte nessa mudança.`,
+    premiumTitulo: "SE VOCÊ JÁ PERCEBE QUE ALGUMA COISA NÃO ESTÁ BEM... POR QUE AINDA É TÃO DIFÍCIL FAZER DIFERENTE?",
+    premiumTexto: `Essa talvez seja a parte mais frustrante do Sobrevivendo.
+
+Você não está completamente no escuro. Você percebe.
+
+Percebe o incômodo. Percebe algumas repetições. Percebe aquilo que pesa. Percebe situações que já não gostaria de continuar vivendo do mesmo jeito.
+
+E mesmo assim... algumas coisas continuam.
+
+É justamente aí que vale olhar mais de perto.
+
+Porque entre “isso não está me fazendo bem” e “estou começando a enxergar o que posso fazer diferente” existe um espaço enorme.
+
+O Resultado Premium — Sobrevivendo foi criado para aprofundar esse perfil e te ajudar a observar diferentes formas pelas quais esse funcionamento pode estar aparecendo na sua vida.
+
+Com reflexões, Mapa da Clareza, práticas e um experimento de 7 dias, você terá um próximo passo para sair apenas da identificação e começar a olhar para esse movimento com mais clareza.
+
+Não para encontrar um culpado.
+
+Para começar a perceber onde você ainda tem escolha.`,
+    botao: "QUERO OLHAR MAIS FUNDO",
     checkout: "https://pay.kiwify.com.br/dqE5eYl",
   },
-  {
-    key: "despertando",
-    min: 63, max: 81,
-    nome: "Despertando",
-    cor: "#C99A3D",
-    titulo: "SEU RESULTADO: DESPERTANDO",
+  despertando: {
+    key: "despertando", nome: "Despertando", cor: "#C99A3D",
     resultadoGratuito: `Aqui acontece uma coisa curiosa:
 
-você já percebeu muita coisa.
+você já percebe muita coisa.
 
-Já começou a entender por que reage de determinadas maneiras.
+Começa a reconhecer seus padrões.
 
-Já reconhece algumas situações que vivem se repetindo.
+Entende melhor por que algumas situações mexem tanto com você.
 
-Provavelmente já teve vários momentos de:
+Percebe quando está repetindo algo que já não quer mais.
 
-"Meu Deus... agora entendi!"
+E provavelmente já teve vários momentos de:
+
+“Meu Deus... agora entendi!”
 
 Só que existe uma parte bem irritante nisso. 😂
 
-Você entende...
+Entender não significa conseguir fazer diferente todas as vezes.
 
-e às vezes continua fazendo igual.
+Às vezes você percebe que precisa colocar um limite — e coloca.
 
-Sabe que precisa colocar um limite — mas na hora não coloca.
+Em outras, sabe exatamente o que gostaria de dizer... mas acaba cedendo.
 
-Sabe que aquela situação não te faz bem — mas continua nela.
+Às vezes toma uma decisão importante para você.
 
-Sabe que precisa tomar uma decisão — mas pensa, repensa, procura mais uma resposta, conversa com alguém, assiste mais alguma coisa...
+Em outras, começa a duvidar dela quando alguém se incomoda.
 
-e continua sem decidir.
+Tem momentos em que reconhece um padrão enquanto ele está acontecendo e consegue escolher diferente.
 
-Talvez você já tenha pensado:
+E tem outros em que só pensa:
 
-"Eu sei de onde isso vem, mas continuo fazendo."
+“Eu sabia. E fiz de novo.”
 
-Ou:
+É justamente por isso que esse momento pode ser tão confuso.
 
-"Eu já deveria ter superado isso."
+Porque você já não consegue dizer:
 
-E talvez a pergunta mais frustrante seja:
+“Eu não percebia.”
 
-"Se eu já entendi tanta coisa sobre mim, por que ainda continuo repetindo?"
+Mas também ainda não consegue dizer:
 
-Porque entender é uma parte da mudança.
+“Eu consigo viver de acordo com aquilo que percebo.”
 
-Fazer diferente quando a situação acontece de verdade é outra.
+Existe um espaço entre essas duas coisas.
 
-Talvez você não precise descobrir mais cinquenta coisas sobre você agora.
+E talvez seja nele que você esteja agora.
 
-Talvez precise perceber:
+Não faltando consciência.
+Não voltando para trás.
 
-"Daquilo que eu já sei sobre mim... o que eu ainda não estou conseguindo colocar em prática?"`,
-    premiumTitulo: "DESCOBRIR QUE VOCÊ ESTÁ DESPERTANDO É SÓ A PRIMEIRA RESPOSTA.",
-    premiumTexto: `O que este resultado ainda não mostra é o que pode estar acontecendo entre tudo o que você já percebeu — e aquilo que ainda não consegue fazer diferente.
+Mas aprendendo uma parte do autoconhecimento sobre a qual se fala muito menos:
 
-Porque uma coisa é entender.
+como continuar fazendo diferente quando fazer diferente fica desconfortável.
 
-Outra é conseguir agir diferente quando a vida acontece de verdade.
+Quando aparece culpa.
+Quando alguém não gosta.
+Quando você tem medo de escolher errado.
+Quando o comportamento antigo volta.
+Quando aquilo que você entendeu sobre si precisa sair da cabeça e participar de uma escolha real.
 
-No Resultado Premium — Despertando, você vai investigar onde essa distância aparece, escolher um padrão de cada vez e usar o Mapa de Clareza Pessoal + exercícios práticos + experimento de 7 dias para transformar percepção em movimento.
+Por isso, talvez você não precise descobrir mais cinquenta coisas sobre você agora.
 
-Seu resultado mostrou o que você já percebe.
+Talvez a pergunta mais importante seja:
 
-Agora descubra o que pode estar faltando para levar isso para a vida.`,
-    botao: "QUERO DESCOBRIR O QUE EXISTE ENTRE SABER E FAZER",
+“Daquilo que eu já consigo perceber e compreender sobre mim... o que ainda oscila quando preciso viver diferente?”`,
+    premiumTitulo: "VOCÊ JÁ ENTENDEU MUITA COISA SOBRE VOCÊ. MAS ENTENDER ESTÁ MUDANDO A SUA VIDA?",
+    premiumTexto: `Essa pergunta incomoda um pouquinho, eu sei. 😂
+
+Porque chega um momento em que descobrir mais um padrão, assistir mais um vídeo ou ter mais um daqueles “Nossa, sou exatamente assim!” já não é suficiente.
+
+Você pode saber por que reage. Saber onde precisa colocar um limite. Saber qual conversa está adiando. Saber que está repetindo um comportamento.
+
+E ainda assim...
+
+na hora em que a vida acontece, fazer diferente pode ser outra história.
+
+É justamente esse espaço entre perceber e viver diferente que o Resultado Premium — Despertando aprofunda.
+
+Você vai encontrar reflexões, Mapa da Clareza, práticas e um experimento de 7 dias para observar como esse movimento pode aparecer na sua vida e começar a levar aquilo que você já percebe para a experiência.
+
+Porque talvez você não precise de mais uma descoberta sobre você.
+
+Talvez precise descobrir o que acontece quando aquilo que você já sabe precisa virar escolha.`,
+    botao: "QUERO LEVAR ISSO PARA A VIDA REAL",
     checkout: "https://pay.kiwify.com.br/6lHlycF",
   },
-  {
-    key: "caminho-real",
-    min: 82, max: 100,
-    nome: "Caminho Real",
-    cor: "#2F7A6B",
-    titulo: "SEU RESULTADO: CAMINHO REAL",
-    resultadoGratuito: `Você provavelmente já se observa bastante.
+  "caminho-real": {
+    key: "caminho-real", nome: "Caminho Real", cor: "#2F7A6B",
+    resultadoGratuito: `Tem uma coisa importante no seu resultado:
 
-Percebe quando alguma coisa te incomoda.
+você não chegou a lugar nenhum.
 
-Pensa sobre suas escolhas.
+E isso é uma boa notícia. 😂
 
-Tenta compreender suas emoções.
+Porque Caminho Real não é um lugar onde você finalmente aprende a lidar bem com tudo, nunca mais repete um padrão e toma sempre as decisões certas.
 
-Procura viver de um jeito que faça sentido para você.
+A vida continua acontecendo.
 
-E isso é muito bom.
+Você ainda pode ter medo.
+Pode ficar confuso.
+Pode reagir de um jeito e depois pensar:
+“Não era assim que eu queria ter lidado com isso.”
 
-Mas existe uma armadilha aqui que quase ninguém conta:
+Pode tomar uma decisão e descobrir mais tarde que ela já não faz sentido.
 
-até o autoconhecimento pode virar cobrança.
+Pode colocar um limite e sentir culpa.
 
-Você começa querendo se conhecer melhor...
+Pode voltar a um comportamento que achava que já tinha deixado para trás.
 
-e, quando percebe, está pensando:
+A diferença está no que acontece depois — e, cada vez mais, durante.
 
-"Eu já deveria saber lidar com isso."
+Você tende a perceber mais cedo o que está acontecendo com você.
 
-"Não acredito que isso ainda mexe comigo."
+Consegue olhar para uma situação e reconhecer não apenas o que o outro fez, mas também qual é a sua parte nela.
 
-"Eu achei que já tinha superado."
+Aquilo que você percebe começa a participar das suas escolhas.
 
-"Preciso entender o que essa situação quer me ensinar."
+E quando uma escolha deixa de fazer sentido, existe mais espaço para rever.
 
-E sim... às vezes até descansar vira projeto de desenvolvimento pessoal. 😂
+Quando você erra, existe mais possibilidade de reconhecer e reparar.
 
-Talvez você sinta que precisa lidar "bem" com tudo porque já se conhece.
+Quando um padrão antigo reaparece, isso não precisa significar que todo o caminho foi perdido.
 
-Talvez fique incomodada quando um comportamento antigo aparece novamente.
+Você pode perceber.
+Reajustar.
+Retomar.
+E continuar.
 
-Talvez tente entender rapidamente uma emoção em vez de simplesmente sentir.
+Isso não é controle.
+Não é ter todas as respostas.
+E definitivamente não é viver em paz consigo mesmo 24 horas por dia. 😂
 
-Ou ache muito mais fácil resolver sozinha do que admitir:
+É algo bem mais real:
 
-"Dessa vez eu preciso de ajuda."
+você começa a estar presente na própria vida enquanto ela acontece.
 
-E talvez seu próximo passo não seja se conhecer mais.
+Talvez seja justamente isso que diferencia este momento dos anteriores.
 
-Pode ser aprender a se tratar com um pouco menos de cobrança enquanto continua se conhecendo.
+Antes, compreender alguma coisa sobre você podia ser o ponto de chegada.
 
-Porque consciência não significa nunca mais errar.
+Agora, compreender começa a ser só uma parte.
 
-Nunca mais se confundir.
+Porque aquilo que você percebe sobre si já consegue atravessar a reflexão e chegar à vida real:
 
-Nunca mais voltar a um comportamento antigo.
+na conversa que você decide ter.
+no limite que coloca.
+na escolha que sustenta.
+na decisão que revê.
+no erro que repara.
+na mudança que retoma.
 
-Talvez agora a pergunta seja:
+E talvez essa seja uma das partes mais bonitas — e menos glamourosas 😂 — do autoconhecimento:
 
-"Será que estou usando tudo o que aprendi sobre mim para viver com mais liberdade... ou para me cobrar ainda mais?"`,
-    premiumTitulo: "CHEGAR AO CAMINHO REAL NÃO SIGNIFICA QUE NÃO EXISTA MAIS NADA PARA PERCEBER.",
-    premiumTexto: `O que este resultado ainda não mostra é onde a busca por crescer e se conhecer pode estar se transformando, sem você perceber, em cobrança.
+você não precisa acertar sempre para viver com consciência.
 
-Porque uma coisa é usar consciência para crescer.
+Precisa conseguir se perceber enquanto vive, participar das próprias escolhas e voltar para si quando perceber que se afastou delas.
 
-Outra é começar a usá-la para exigir mais de si.
+Por isso, Caminho Real não significa:
+“Agora eu sei quem sou.”
 
-No Resultado Premium — Caminho Real, você vai investigar onde isso pode estar acontecendo e usar o Mapa de Clareza Pessoal + exercícios práticos + experimento de 7 dias para viver o que já aprendeu sobre si com mais liberdade e menos cobrança.
+Talvez signifique algo muito mais interessante:
 
-Seu resultado mostrou o quanto você já percebe.
+“Eu consigo me escutar, escolher, rever e continuar me encontrando enquanto vivo.”`,
+    premiumTitulo: "E AGORA QUE VOCÊ JÁ SE PERCEBE MAIS... O QUE AINDA NÃO PERCEBEU?",
+    premiumTexto: `Caminho Real tem uma armadilha curiosa:
 
-Agora descubra onde talvez até a sua consciência esteja pesando mais do que deveria.`,
-    botao: "QUERO DESCOBRIR ONDE CONSCIÊNCIA VIROU COBRANÇA",
+quanto mais você aprende a se observar, mais fácil pode parecer que já conhece seus próprios movimentos.
+
+Até a vida apresentar uma situação nova. 😂
+
+Porque consciência não é uma resposta que você encontra uma vez e guarda.
+
+Ela aparece na conversa difícil. Na escolha que precisa ser sustentada. Na decisão que precisa ser revista. No padrão que reaparece. Na capacidade de reconhecer, reparar e retomar.
+
+Seu resultado não está dizendo: “Parabéns. Você chegou.”
+
+Está dizendo algo muito mais interessante:
+
+“Você já consegue participar mais conscientemente da própria vida. Agora existe mais coisa para observar.”
+
+O Resultado Premium — Caminho Real é um convite para aprofundar esse movimento.
+
+Com reflexões, Mapa da Clareza, práticas e um experimento de 7 dias, você poderá olhar para diferentes formas pelas quais consciência, escolha, revisão e retomada aparecem na vida real.
+
+Não para alcançar uma versão melhor de você.
+
+Mas para continuar descobrindo quem você é enquanto vive.`,
+    botao: "QUERO IR ALÉM DO MEU RESULTADO",
     checkout: "https://pay.kiwify.com.br/EmsPGr0",
   },
-];
+};
 
-function getProfile(score) {
-  return PROFILES.find((p) => score >= p.min && score <= p.max) || PROFILES[0];
+function analyzeAnswers(answers) {
+  const levels = answers.map((answer, i) => LEVEL_MATRIX[i][answer - 1]);
+  const count = [0,1,2,3].map(n => levels.filter(v => v === n).length);
+  const active = levels.filter(v => v >= 2).length;
+  const n3 = count[3];
+
+  const byDimension = {};
+  QUESTIONS.forEach((question, i) => {
+    (byDimension[question.dimension] ||= []).push(levels[i]);
+  });
+
+  const anchors = [levels[10], levels[11], levels[14]];
+  const n3EveryDimension = ["perceber","compreender","escolher","sustentar"]
+    .every(d => byDimension[d].some(v => v === 3));
+  const escolherActive = byDimension.escolher.filter(v => v >= 2).length;
+  const sustentarActive = byDimension.sustentar.filter(v => v >= 2).length;
+
+  const caminhoReal =
+    active >= 12 &&
+    n3 >= 5 &&
+    n3EveryDimension &&
+    escolherActive >= 3 &&
+    sustentarActive >= 4 &&
+    anchors.every(v => v !== 0) &&
+    anchors.filter(v => v >= 2).length >= 2;
+
+  if (caminhoReal) return { profile: PROFILES["caminho-real"], levels, count, byDimension, anchors };
+
+  const perceber = byDimension.perceber;
+  const noAutomatico =
+    count[0] >= 8 ||
+    (count[0] >= 5 && perceber.filter(v => v === 0).length >= 2 && levels[2] === 0);
+
+  if (noAutomatico) return { profile: PROFILES.automatico, levels, count, byDimension, anchors };
+  const perceberActive = byDimension.perceber.filter(v => v >= 2).length;
+  const compreenderActive = byDimension.compreender.filter(v => v >= 2).length;
+  const iniciouMovimento = escolherActive >= 1;
+  const despertandoPorCircuito = perceberActive >= 2 && compreenderActive >= 3 && iniciouMovimento;
+
+  if (active >= 8 || despertandoPorCircuito) {
+    return { profile: PROFILES.despertando, levels, count, byDimension, anchors };
+  }
+  return { profile: PROFILES.sobrevivendo, levels, count, byDimension, anchors };
 }
 
 function Paragraphs({ text, style }) {
   const blocks = text.split(/\n\n+/).map((b) => b.trim()).filter(Boolean);
-  return (
-    <>
-      {blocks.map((b, i) => (
-        <p key={i} style={{ ...styles.body, ...style, marginBottom: 14 }}>{b}</p>
-      ))}
-    </>
-  );
+  return <>{blocks.map((b, i) => <p key={i} style={{ ...styles.body, ...style, marginBottom: 14 }}>{b}</p>)}</>;
 }
 
 export default function App() {
@@ -312,37 +451,31 @@ export default function App() {
   const [sending, setSending] = useState(false);
   const [sendError, setSendError] = useState(false);
 
-  const score = answers.reduce((a, b) => a + (b || 0), 0);
-  const profile = getProfile(score || 25);
+  const analysis = answers.every(a => a != null) ? analyzeAnswers(answers) : null;
+  const profile = analysis?.profile;
 
-  function selectOption(points) {
+  function selectOption(optionIndex) {
     const next = [...answers];
-    next[current] = points;
+    next[current] = optionIndex;
     setAnswers(next);
   }
 
   function goNext() {
     if (answers[current] == null) return;
-    if (current + 1 < QUESTIONS.length) {
-      setCurrent(current + 1);
-    } else {
-      setScreen("lead");
-    }
+    if (current + 1 < QUESTIONS.length) setCurrent(current + 1);
+    else setScreen("lead");
   }
 
   function goPrev() {
-    if (current > 0) {
-      setCurrent(current - 1);
-    }
+    if (current > 0) setCurrent(current - 1);
   }
 
   async function submitLead(e) {
     e.preventDefault();
     setSending(true);
     setSendError(false);
+    const finalAnalysis = analyzeAnswers(answers);
     try {
-      const finalScore = answers.reduce((a, b) => a + (b || 0), 0);
-      const finalProfile = getProfile(finalScore);
       const res = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
@@ -350,8 +483,10 @@ export default function App() {
           nome: lead.nome,
           email: lead.email,
           whatsapp: lead.whatsapp,
-          pontuacao: finalScore,
-          perfil: finalProfile.nome,
+          perfil: finalAnalysis.profile.nome,
+          niveis: `N0:${finalAnalysis.count[0]} | N1:${finalAnalysis.count[1]} | N2:${finalAnalysis.count[2]} | N3:${finalAnalysis.count[3]}`,
+          respostas: answers.map((a, i) => `${i + 1}${["A","B","C","D"][a - 1]}`).join(" | "),
+          ancoras: `Q11:N${finalAnalysis.anchors[0]} | Q12:N${finalAnalysis.anchors[1]} | Q15:N${finalAnalysis.anchors[2]}`,
         }),
       });
       if (!res.ok) throw new Error("Falha no envio");
@@ -381,31 +516,17 @@ export default function App() {
         .opt-btn:hover { transform: translateX(4px); border-color: var(--accent) !important; background: var(--accent-10) !important; }
         .cta-btn { transition: all 0.15s ease; }
         .cta-btn:hover { transform: translateY(-1px); filter: brightness(1.08); }
-        .node { transition: all 0.3s ease; }
         input:focus { outline: none; border-color: #C99A3D !important; }
       `}</style>
 
-      {screen === "intro" && <Intro onStart={() => setScreen("quiz")} />}
-
+      {screen === "intro" && <Intro onStart={() => setScreen("instructions")} />}
+      {screen === "instructions" && <Instructions onStart={() => setScreen("quiz")} />}
       {screen === "quiz" && (
-        <Quiz
-          index={current}
-          question={QUESTIONS[current]}
-          total={QUESTIONS.length}
-          selected={answers[current]}
-          onSelect={selectOption}
-          onNext={goNext}
-          onPrev={goPrev}
-        />
+        <Quiz index={current} question={QUESTIONS[current]} total={QUESTIONS.length}
+          selected={answers[current]} onSelect={selectOption} onNext={goNext} onPrev={goPrev} />
       )}
-
-      {screen === "lead" && (
-        <Lead lead={lead} setLead={setLead} onSubmit={submitLead} sending={sending} />
-      )}
-
-      {screen === "result" && (
-        <Result profile={profile} onRestart={restart} sendError={sendError} />
-      )}
+      {screen === "lead" && <Lead lead={lead} setLead={setLead} onSubmit={submitLead} sending={sending} />}
+      {screen === "result" && profile && <Result profile={profile} onRestart={restart} sendError={sendError} />}
     </div>
   );
 }
@@ -415,98 +536,77 @@ function Intro({ onStart }) {
     <div style={styles.centerCol}>
       <div style={{ ...styles.card, maxWidth: 560, textAlign: "center" }}>
         <p style={styles.eyebrow}>TESTE DE CONSCIÊNCIA PESSOAL</p>
-        <h1 style={styles.title}>Você está vivendo do jeito que gostaria… ou apenas fazendo o que precisa ser feito?</h1>
-        <p style={styles.body}>
-          Em poucos minutos, responda a 25 perguntas sobre situações do dia a
-          dia e descubra qual dos quatro perfis mais combina com a forma como
-          você tem vivido este momento.
-        </p>
+        <h1 style={styles.title}>Quanto daquilo que você percebe sobre si realmente participa da sua vida?</h1>
+        <p style={styles.body}>Às vezes a gente sabe exatamente o que gostaria de fazer... e faz outra coisa. 😂</p>
         <p style={{ ...styles.body, marginTop: 12 }}>
-          Talvez algumas respostas te surpreendam. Outras podem colocar em
-          palavras coisas que você já sentia, mas ainda não tinha parado
-          para perceber.
+          Este teste vai te ajudar a observar como aquilo que você percebe sobre si aparece nas situações comuns da vida — nas suas reações, escolhas, limites e decisões.
         </p>
-        <PathPreview />
         <button style={styles.ctaMain} className="cta-btn" onClick={onStart}>
-          DESCOBRIR MEU PERFIL <ArrowRight size={18} strokeWidth={2.5} />
+          COMEÇAR O TESTE <ArrowRight size={18} strokeWidth={2.5} />
         </button>
-        <p style={styles.fineprint}>Leva cerca de 5 minutos.</p>
         <p style={styles.copyright}>Criado por Fabrícia Máia · Terapeuta Integrativa</p>
       </div>
     </div>
   );
 }
 
-function PathPreview() {
+function Instructions({ onStart }) {
   return (
-    <div style={{ display: "flex", justifyContent: "space-between", margin: "32px 0 28px" }}>
-      {PROFILES.map((p) => (
-        <div key={p.key} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8, flex: 1 }}>
-          <div style={{ width: 10, height: 10, borderRadius: "50%", background: p.cor }} />
-          <span style={{ fontSize: 11, color: "#9691A8", fontFamily: "Inter, sans-serif", textAlign: "center" }}>{p.nome}</span>
-        </div>
-      ))}
+    <div style={styles.centerCol}>
+      <div style={{ ...styles.card, maxWidth: 560 }}>
+        <p style={styles.eyebrow}>ANTES DE COMEÇAR...</p>
+        <h2 style={{ ...styles.title, fontSize: 27 }}>Aqui não existe resposta certa.</h2>
+        <p style={styles.body}>E não vale escolher aquela que parece mais bonita. 😏</p>
+        <p style={{ ...styles.body, marginTop: 14 }}>
+          Responda pensando no que acontece <strong>na vida real</strong>:
+        </p>
+        <p style={{ ...styles.question, fontSize: 19, marginTop: 18 }}>
+          “O que eu costumo fazer quando isso acontece comigo?”
+        </p>
+        <p style={{ ...styles.body, marginTop: 18 }}>
+          Escolha a alternativa que mais se aproxima de como você costuma agir <strong>hoje</strong> — não de como gostaria de agir.
+        </p>
+        <button style={styles.ctaMain} className="cta-btn" onClick={onStart}>
+          ENTENDI. VAMOS LÁ <ArrowRight size={18} strokeWidth={2.5} />
+        </button>
+      </div>
     </div>
   );
 }
 
 function Quiz({ index, question, total, selected, onSelect, onNext, onPrev }) {
-  const pct = (index / total) * 100;
+  const pct = ((index + 1) / total) * 100;
   const isLast = index === total - 1;
   return (
     <div style={styles.centerCol}>
       <div style={{ ...styles.card, maxWidth: 600 }}>
-        <div style={styles.progressTrack}>
-          <div style={{ ...styles.progressFill, width: `${pct}%` }} />
-        </div>
+        <div style={styles.progressTrack}><div style={{ ...styles.progressFill, width: `${pct}%` }} /></div>
         <p style={styles.progressLabel}>Pergunta {index + 1} de {total}</p>
         <h2 style={styles.question}>{question.q}</h2>
         <div style={{ display: "flex", flexDirection: "column", gap: 10, marginTop: 20 }}>
           {question.o.map((opt, i) => {
             const isSelected = selected === i + 1;
             return (
-              <button
-                key={i}
-                className="opt-btn"
-                style={{
-                  ...styles.optBtn,
-                  "--accent": "#C99A3D",
-                  "--accent-10": "#C99A3D1a",
+              <button key={i} className="opt-btn"
+                style={{ ...styles.optBtn, "--accent": "#C99A3D", "--accent-10": "#C99A3D1a",
                   borderColor: isSelected ? "#C99A3D" : "#E7E3F0",
                   background: isSelected ? "#C99A3D1a" : "#fff",
-                  fontWeight: isSelected ? 600 : 400,
-                }}
-                onClick={() => onSelect(i + 1)}
-              >
+                  fontWeight: isSelected ? 600 : 400 }}
+                onClick={() => onSelect(i + 1)}>
                 {opt}
               </button>
             );
           })}
         </div>
-
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 28 }}>
           {index > 0 ? (
-            <button
-              className="cta-btn"
-              onClick={onPrev}
-              style={{ ...styles.ctaMain, marginTop: 0, background: "transparent", color: "#6B667D", border: "1px solid #DEDAE8", padding: "12px 20px" }}
-            >
+            <button className="cta-btn" onClick={onPrev}
+              style={{ ...styles.ctaMain, marginTop: 0, background: "transparent", color: "#6B667D", border: "1px solid #DEDAE8", padding: "12px 20px" }}>
               <ArrowLeft size={18} /> Anterior
             </button>
-          ) : (
-            <span />
-          )}
-          <button
-            className="cta-btn"
-            onClick={onNext}
-            disabled={selected == null}
-            style={{
-              ...styles.ctaMain,
-              marginTop: 0,
-              opacity: selected == null ? 0.4 : 1,
-              cursor: selected == null ? "not-allowed" : "pointer",
-            }}
-          >
+          ) : <span />}
+          <button className="cta-btn" onClick={onNext} disabled={selected == null}
+            style={{ ...styles.ctaMain, marginTop: 0, opacity: selected == null ? 0.4 : 1, cursor: selected == null ? "not-allowed" : "pointer" }}>
             {isLast ? "Ver resultado" : "Próxima"} <ArrowRight size={18} />
           </button>
         </div>
@@ -521,9 +621,7 @@ function Lead({ lead, setLead, onSubmit, sending }) {
       <div style={{ ...styles.card, maxWidth: 480 }}>
         <p style={styles.eyebrow}>Quase lá</p>
         <h2 style={{ ...styles.title, fontSize: 24 }}>Para onde enviamos seu resultado?</h2>
-        <p style={styles.body}>
-          Seu retrato está pronto. Preencha abaixo para ver seu resultado completo.
-        </p>
+        <p style={styles.body}>Seu retrato está pronto. Preencha abaixo para ver seu resultado completo.</p>
         <form onSubmit={onSubmit} style={{ display: "flex", flexDirection: "column", gap: 12, marginTop: 20 }}>
           <input required type="text" placeholder="Seu nome" value={lead.nome} onChange={(e) => setLead({ ...lead, nome: e.target.value })} style={styles.input} />
           <input required type="email" placeholder="Seu melhor e-mail" value={lead.email} onChange={(e) => setLead({ ...lead, email: e.target.value })} style={styles.input} />
@@ -544,41 +642,24 @@ function Result({ profile, onRestart, sendError }) {
       <div style={{ ...styles.card, maxWidth: 640 }}>
         <p style={styles.eyebrow}>SEU RESULTADO É</p>
         <h1 style={{ ...styles.title, color: profile.cor, marginBottom: 24 }}>{profile.nome}</h1>
-
         <Paragraphs text={profile.resultadoGratuito} />
-
         <div style={{ ...styles.premiumCard, background: `linear-gradient(135deg, ${profile.cor}12, ${profile.cor}04)`, borderColor: profile.cor + "35" }}>
           <p style={{ ...styles.question, color: profile.cor, fontSize: 19, marginBottom: 14 }}>{profile.premiumTitulo}</p>
           <Paragraphs text={profile.premiumTexto} />
-
           <div style={{ marginTop: 20, textAlign: "center" }}>
             <p style={{ ...styles.sectionLabel, color: profile.cor, marginBottom: 4 }}>Resultado Premium — {profile.nome}</p>
             <p style={{ fontFamily: "'Fraunces', serif", fontSize: 32, fontWeight: 600, color: "#2A2640", margin: "4px 0 18px" }}>R$27</p>
-            <a
-              href={profile.checkout}
-              target="_blank"
-              rel="noreferrer"
-              className="cta-btn"
-              style={{ ...styles.ctaMain, marginTop: 0, background: profile.cor, textDecoration: "none", width: "100%", justifyContent: "center" }}
-            >
+            <a href={profile.checkout} target="_blank" rel="noreferrer" className="cta-btn"
+              style={{ ...styles.ctaMain, marginTop: 0, background: profile.cor, textDecoration: "none", width: "100%", justifyContent: "center" }}>
               {profile.botao} <ArrowRight size={18} />
             </a>
-            <p style={{ ...styles.fineprint, marginTop: 12 }}>
-              Acesso ao material digital correspondente ao seu perfil após a confirmação da compra.
-            </p>
+            <p style={{ ...styles.fineprint, marginTop: 12 }}>Acesso ao material digital correspondente ao seu perfil após a confirmação da compra.</p>
           </div>
         </div>
-
-        {sendError && (
-          <p style={{ ...styles.fineprint, color: "#B06A3E", marginTop: 16 }}>
-            Não conseguimos salvar seus dados automaticamente — sem problema, seu resultado continua completo abaixo.
-          </p>
-        )}
-
+        {sendError && <p style={{ ...styles.fineprint, color: "#B06A3E", marginTop: 16 }}>Não conseguimos salvar seus dados automaticamente — sem problema, seu resultado continua completo abaixo.</p>}
         <button style={{ ...styles.ctaMain, background: "transparent", color: "#6B667D", border: "1px solid #DEDAE8", marginTop: 28 }} className="cta-btn" onClick={onRestart}>
           <RotateCcw size={16} /> Refazer o teste
         </button>
-
         <p style={styles.copyright}>Teste de Consciência Pessoal © Fabrícia Máia. Todos os direitos reservados.</p>
       </div>
     </div>
@@ -586,12 +667,7 @@ function Result({ profile, onRestart, sendError }) {
 }
 
 const styles = {
-  page: {
-    minHeight: "100vh",
-    background: "linear-gradient(180deg, #1E2130 0%, #262A3D 100%)",
-    fontFamily: "Inter, sans-serif",
-    padding: "40px 20px",
-  },
+  page: { minHeight: "100vh", background: "linear-gradient(180deg, #1E2130 0%, #262A3D 100%)", fontFamily: "Inter, sans-serif", padding: "40px 20px" },
   centerCol: { display: "flex", justifyContent: "center", alignItems: "flex-start" },
   card: { background: "#FBF9F5", borderRadius: 16, padding: "36px 40px", width: "100%", boxShadow: "0 20px 60px rgba(0,0,0,0.35)" },
   eyebrow: { fontSize: 12, letterSpacing: "0.08em", textTransform: "uppercase", color: "#9691A8", fontWeight: 600, marginBottom: 8 },
@@ -605,10 +681,7 @@ const styles = {
   progressLabel: { fontSize: 12, color: "#B4AFC4", margin: "10px 0 18px", fontWeight: 500 },
   question: { fontFamily: "'Fraunces', serif", fontSize: 22, fontWeight: 500, color: "#2A2640", margin: 0, lineHeight: 1.3 },
   optBtn: { textAlign: "left", padding: "14px 16px", borderRadius: 10, border: "1px solid #E7E3F0", background: "#fff", fontSize: 14.5, color: "#3D3956", cursor: "pointer", fontFamily: "Inter, sans-serif", lineHeight: 1.4 },
-  section: { marginTop: 28, paddingTop: 22, borderTop: "1px solid #EDE9F3" },
   sectionLabel: { fontSize: 12, letterSpacing: "0.06em", textTransform: "uppercase", color: "#8B87A0", fontWeight: 700, margin: "0 0 8px" },
-  perguntaBox: { padding: "16px 18px", borderRadius: 12, background: "#F3EFE6", display: "flex", gap: 14, alignItems: "flex-start" },
-  perguntaNum: { fontFamily: "'Fraunces', serif", fontSize: 20, fontWeight: 600, flexShrink: 0 },
   premiumCard: { marginTop: 28, padding: "24px 26px", borderRadius: 14, border: "1px solid" },
   copyright: { fontSize: 11, color: "#C4C0D2", textAlign: "center", marginTop: 24 },
 };
