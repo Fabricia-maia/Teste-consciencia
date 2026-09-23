@@ -46,62 +46,43 @@ Talvez você nem esteja exatamente infeliz.
 
 Mas algumas coisas podem estar acontecendo tão no automático que você só percebe depois.
 
-Depois que disse “sim” e percebeu que queria ter dito “não”.
+Diz “sim” e depois percebe que queria ter dito “não”.
 
-Depois que reagiu de um jeito e pensou: “Por que eu fiz isso de novo?”
+Reage de um jeito e depois pensa: “Por que eu fiz isso de novo?”
 
-Depois que uma situação se repetiu.
+Vai deixando um incômodo... deixando... até chegar uma hora em que não dá mais.
 
-Depois que o incômodo ficou grande demais para continuar ignorando.
+Ou repete uma situação e só então percebe que já esteve ali antes.
 
-E não significa que você não pense sobre a própria vida.
+E isso não significa que você não se conhece ou que não se importa com a própria vida.
 
-O ponto pode ser outro:
+Às vezes a gente simplesmente passa tanto tempo respondendo ao que acontece que quase não existe espaço entre o que acontece e o que a gente faz.
 
-muitas vezes você percebe o que estava acontecendo quando já aconteceu.
+Talvez seu primeiro passo não seja mudar nada agora.
 
-Enquanto isso, o costume, a pressa, aquilo que esperam de você ou simplesmente o jeito que sempre fez acabam decidindo primeiro.
-
-E é assim que algumas coisas vão permanecendo.
-
-Não necessariamente porque você escolheu continuar.
-
-Mas porque talvez ainda não tenha existido espaço suficiente entre o que acontece e a sua resposta.
-
-Por isso, seu primeiro movimento não precisa ser mudar sua vida inteira.
-
-Pode ser muito menor — e muito mais importante:
-
-começar a perceber antes.
+Talvez seja apenas começar a perceber um pouco antes.
 
 Antes do “sim”.
 Antes da reação.
 Antes de repetir.
-Antes de simplesmente seguir.
 
-Porque talvez a pergunta agora não seja:
-“O que eu preciso mudar?”
+E começar com uma pergunta:
 
-Talvez seja:
-“O que eu começaria a escolher diferente se conseguisse perceber enquanto ainda posso escolher?”`,
+“O que eu escolheria diferente se percebesse enquanto ainda posso escolher?”`,
     premiumTitulo: "E SE O AUTOMÁTICO ESTIVER DECIDINDO MAIS COISAS POR VOCÊ DO QUE VOCÊ IMAGINA?",
-    premiumTexto: `Você acabou de reconhecer um movimento importante.
+    premiumTexto: `O difícil é que o automático quase nunca parece automático.
 
-Mas saber que ele existe é diferente de começar a enxergar como ele pode aparecer nas situações comuns da sua vida.
+Ele aparece no “sim” que saiu antes de você pensar.
 
-Porque o automático raramente chega dizendo: “Oi, sou eu escolhendo por você.” 😂
+Na reação que só fez sentido depois.
 
-Ele aparece nas pequenas coisas: na resposta que sai rápido demais, no “sim” que vem antes da pergunta “eu quero?”, na situação que se repete e parece apenas azar, na reação que só faz sentido depois.
+Na situação que se repete e parece apenas coincidência.
 
-E quanto mais familiar um padrão é, mais fácil é confundi-lo com: “Eu sou assim mesmo.”
+E é justamente isso que o Resultado Premium — No Automático vai te ajudar a enxergar.
 
-Foi por isso que eu criei o Resultado Premium — No Automático.
+Você vai aprofundar seu perfil, identificar como esse funcionamento pode aparecer na sua vida e usar o Mapa da Clareza, práticas e um experimento de 7 dias para começar a perceber antes aquilo que hoje talvez só perceba depois.
 
-Para você não ficar apenas com o nome do seu perfil, mas ter um material para aprofundá-lo, reconhecer como esse funcionamento pode aparecer na vida real e começar a observar aquilo que hoje ainda passa rápido demais.
-
-Porque talvez você não precise mudar tudo.
-
-Talvez precise começar a enxergar o que acontece antes da repetição.`,
+Porque quando você percebe antes, começa a existir escolha.`,
     botao: "QUERO ENXERGAR ALÉM DO AUTOMÁTICO",
     checkout: "https://pay.kiwify.com.br/ai8EDtg",
   },
@@ -113,91 +94,58 @@ Talvez seja uma situação que se repete.
 
 Uma relação que pesa.
 
-Uma rotina que já não faz sentido.
-
 Um limite que você sabe que precisa colocar.
 
-Ou simplesmente aquela sensação de:
+Uma decisão que continua adiando.
+
+Ou simplesmente aquela sensação:
 
 “Eu não quero continuar desse jeito.”
 
 O problema é que perceber isso nem sempre significa saber o que fazer com isso.
 
-Você sente o incômodo.
-
-Pensa sobre ele.
-
-Talvez reclame, tente mudar alguma coisa, prometa para si mesmo que dessa vez vai ser diferente...
+Você sente o incômodo. Pensa sobre ele. Talvez até tente mudar alguma coisa...
 
 mas, quando a vida acontece de verdade, acaba entrando no mesmo funcionamento outra vez.
 
 Diz “sim” querendo dizer “não”.
 
-Vai adiando uma decisão.
+Adia uma decisão que sabe que precisa tomar.
 
-Continua carregando coisas que já percebeu que estão pesadas.
+Continua aceitando uma situação que já percebeu que não está fazendo bem.
 
-Reage do mesmo jeito e depois pensa:
+E às vezes pensa:
 
-“Eu sabia que isso ia acontecer.”
+“Eu sei que isso precisa mudar. Só não sei por onde começar.”
 
-E é aí que o Sobrevivendo é diferente do No Automático.
+É justamente aí que está o ponto.
 
 Você já percebe que existe alguma coisa acontecendo.
 
-Só que ainda pode ser difícil enxergar com clareza o que mantém você preso nisso.
-
-Às vezes parece que o problema está na situação.
-Na outra pessoa.
-Na falta de tempo.
-Nas responsabilidades.
-No medo de decepcionar.
-
-E sim, tudo isso pode ter peso.
-
-Mas existe uma pergunta que começa a abrir outra porta:
-
-“O que eu continuo fazendo, aceitando ou adiando que também ajuda essa situação a continuar como está?”
+O que talvez ainda esteja difícil é enxergar como você participa daquilo que continua se repetindo.
 
 Não para se culpar.
 
 Mas para começar a encontrar aquilo que realmente está nas suas mãos.
 
-Porque existe uma diferença enorme entre perceber:
+Talvez a pergunta agora seja:
 
-“Isso está me fazendo mal.”
+“O que eu continuo fazendo, aceitando ou adiando que também ajuda essa situação a continuar como está?”`,
+    premiumTitulo: "VOCÊ JÁ SABE O QUE ESTÁ TE INCOMODANDO. MAS CONSEGUE ENXERGAR O QUE FAZ ISSO CONTINUAR?",
+    premiumTexto: `Às vezes a gente procura a resposta na situação, na outra pessoa, na falta de tempo ou no medo de mudar.
 
-e conseguir enxergar:
+E tudo isso pode ter peso.
 
-“Agora estou começando a entender como isso continua acontecendo na minha vida.”
+Mas existe uma parte muito mais difícil de enxergar:
 
-E talvez seja exatamente aí que você esteja.
+aquilo que nós mesmos continuamos fazendo, aceitando ou adiando sem perceber o quanto isso mantém tudo no mesmo lugar.
 
-Não sem perceber.
-Não sem querer mudar.
+É essa camada que o Resultado Premium — Sobrevivendo vai te ajudar a observar.
 
-Mas tentando descobrir onde começa a sua parte nessa mudança.`,
-    premiumTitulo: "SE VOCÊ JÁ PERCEBE QUE ALGUMA COISA NÃO ESTÁ BEM... POR QUE AINDA É TÃO DIFÍCIL FAZER DIFERENTE?",
-    premiumTexto: `Essa talvez seja a parte mais frustrante do Sobrevivendo.
+Com o Mapa da Clareza, práticas e um experimento de 7 dias, você poderá olhar com mais profundidade para esse funcionamento e começar a separar o que está fora do seu controle daquilo em que você ainda pode fazer diferente.
 
-Você não está completamente no escuro. Você percebe.
-
-Percebe o incômodo. Percebe algumas repetições. Percebe aquilo que pesa. Percebe situações que já não gostaria de continuar vivendo do mesmo jeito.
-
-E mesmo assim... algumas coisas continuam.
-
-É justamente aí que vale olhar mais de perto.
-
-Porque entre “isso não está me fazendo bem” e “estou começando a enxergar o que posso fazer diferente” existe um espaço enorme.
-
-O Resultado Premium — Sobrevivendo foi criado para aprofundar esse perfil e te ajudar a observar diferentes formas pelas quais esse funcionamento pode estar aparecendo na sua vida.
-
-Com reflexões, Mapa da Clareza, práticas e um experimento de 7 dias, você terá um próximo passo para sair apenas da identificação e começar a olhar para esse movimento com mais clareza.
-
-Não para encontrar um culpado.
-
-Para começar a perceber onde você ainda tem escolha.`,
-    botao: "QUERO OLHAR MAIS FUNDO",
+Porque perceber o problema é importante. Enxergar onde começa a sua escolha muda a conversa.`,
+    botao: "QUERO ENTENDER ONDE POSSO FAZER DIFERENTE",
     checkout: "https://pay.kiwify.com.br/dqE5eYl",
   },
   despertando: {
@@ -216,75 +164,48 @@ E provavelmente já teve vários momentos de:
 
 “Meu Deus... agora entendi!”
 
-Só que existe uma parte bem irritante nisso. 😂
+Só que existe uma parte bem irritante nisso:
 
-Entender não significa conseguir fazer diferente todas as vezes.
+entender não significa conseguir fazer diferente todas as vezes.
 
-Às vezes você percebe que precisa colocar um limite — e coloca.
+Às vezes você sabe que precisa colocar um limite — e coloca.
 
-Em outras, sabe exatamente o que gostaria de dizer... mas acaba cedendo.
+Em outras, sabe exatamente o que gostaria de fazer... mas acaba cedendo.
 
 Às vezes toma uma decisão importante para você.
 
 Em outras, começa a duvidar dela quando alguém se incomoda.
 
-Tem momentos em que reconhece um padrão enquanto ele está acontecendo e consegue escolher diferente.
+E talvez já tenha pensado:
 
-E tem outros em que só pensa:
+“Eu sei de onde isso vem. Por que continuo fazendo?”
 
-“Eu sabia. E fiz de novo.”
+É justamente aí que está o seu movimento agora.
 
-É justamente por isso que esse momento pode ser tão confuso.
-
-Porque você já não consegue dizer:
+Você já não consegue dizer:
 
 “Eu não percebia.”
 
-Mas também ainda não consegue dizer:
+Mas aquilo que você percebe ainda nem sempre consegue participar das suas escolhas.
 
-“Eu consigo viver de acordo com aquilo que percebo.”
+Talvez você não precise descobrir mais cinquenta coisas sobre você.
 
-Existe um espaço entre essas duas coisas.
+Talvez precise começar a perguntar:
 
-E talvez seja nele que você esteja agora.
+“Daquilo que eu já sei sobre mim... o que ainda não estou conseguindo viver diferente?”`,
+    premiumTitulo: "VOCÊ JÁ ENTENDEU MUITA COISA SOBRE VOCÊ. MAS ISSO ESTÁ MUDANDO A FORMA COMO VOCÊ VIVE?",
+    premiumTexto: `Você pode reconhecer um padrão, entender de onde ele vem e até saber o que gostaria de fazer diferente.
 
-Não faltando consciência.
-Não voltando para trás.
+Mas existe um momento em que nenhuma explicação consegue fazer o trabalho por você:
 
-Mas aprendendo uma parte do autoconhecimento sobre a qual se fala muito menos:
+a hora em que aquilo que você entendeu precisa virar escolha.
 
-como continuar fazendo diferente quando fazer diferente fica desconfortável.
+É justamente esse espaço que o Resultado Premium — Despertando vai te ajudar a explorar.
 
-Quando aparece culpa.
-Quando alguém não gosta.
-Quando você tem medo de escolher errado.
-Quando o comportamento antigo volta.
-Quando aquilo que você entendeu sobre si precisa sair da cabeça e participar de uma escolha real.
+Com o Mapa da Clareza, práticas e um experimento de 7 dias, você vai escolher movimentos concretos para começar a levar aquilo que já percebe sobre si para a vida real.
 
-Por isso, talvez você não precise descobrir mais cinquenta coisas sobre você agora.
-
-Talvez a pergunta mais importante seja:
-
-“Daquilo que eu já consigo perceber e compreender sobre mim... o que ainda oscila quando preciso viver diferente?”`,
-    premiumTitulo: "VOCÊ JÁ ENTENDEU MUITA COISA SOBRE VOCÊ. MAS ENTENDER ESTÁ MUDANDO A SUA VIDA?",
-    premiumTexto: `Essa pergunta incomoda um pouquinho, eu sei. 😂
-
-Porque chega um momento em que descobrir mais um padrão, assistir mais um vídeo ou ter mais um daqueles “Nossa, sou exatamente assim!” já não é suficiente.
-
-Você pode saber por que reage. Saber onde precisa colocar um limite. Saber qual conversa está adiando. Saber que está repetindo um comportamento.
-
-E ainda assim...
-
-na hora em que a vida acontece, fazer diferente pode ser outra história.
-
-É justamente esse espaço entre perceber e viver diferente que o Resultado Premium — Despertando aprofunda.
-
-Você vai encontrar reflexões, Mapa da Clareza, práticas e um experimento de 7 dias para observar como esse movimento pode aparecer na sua vida e começar a levar aquilo que você já percebe para a experiência.
-
-Porque talvez você não precise de mais uma descoberta sobre você.
-
-Talvez precise descobrir o que acontece quando aquilo que você já sabe precisa virar escolha.`,
-    botao: "QUERO LEVAR ISSO PARA A VIDA REAL",
+Porque talvez você não precise entender mais. Precise experimentar diferente.`,
+    botao: "QUERO TRANSFORMAR O QUE SEI EM AÇÃO",
     checkout: "https://pay.kiwify.com.br/6lHlycF",
   },
   "caminho-real": {
@@ -293,102 +214,66 @@ Talvez precise descobrir o que acontece quando aquilo que você já sabe precisa
 
 você não chegou a lugar nenhum.
 
-E isso é uma boa notícia. 😂
+E isso é uma boa notícia.
 
-Porque Caminho Real não é um lugar onde você finalmente aprende a lidar bem com tudo, nunca mais repete um padrão e toma sempre as decisões certas.
+Porque Caminho Real não significa que você finalmente aprendeu a lidar bem com tudo, nunca mais repete um padrão ou toma sempre as decisões certas.
 
 A vida continua acontecendo.
 
 Você ainda pode ter medo.
-Pode ficar confuso.
-Pode reagir de um jeito e depois pensar:
-“Não era assim que eu queria ter lidado com isso.”
+Pode se confundir.
+Pode colocar um limite e depois sentir culpa.
+Pode tomar uma decisão e descobrir que ela já não faz sentido.
+Pode voltar a um comportamento que achava que tinha deixado para trás.
 
-Pode tomar uma decisão e descobrir mais tarde que ela já não faz sentido.
-
-Pode colocar um limite e sentir culpa.
-
-Pode voltar a um comportamento que achava que já tinha deixado para trás.
-
-A diferença está no que acontece depois — e, cada vez mais, durante.
+A diferença está no que acontece durante — e depois.
 
 Você tende a perceber mais cedo o que está acontecendo com você.
 
-Consegue olhar para uma situação e reconhecer não apenas o que o outro fez, mas também qual é a sua parte nela.
+Consegue reconhecer sua participação nas situações e aquilo que percebe sobre si começa a participar das suas escolhas.
 
-Aquilo que você percebe começa a participar das suas escolhas.
+E, quando alguma coisa sai diferente do que gostaria, existe mais espaço para rever, reparar, reajustar e retomar.
 
-E quando uma escolha deixa de fazer sentido, existe mais espaço para rever.
+Não porque você sempre sabe o que fazer.
 
-Quando você erra, existe mais possibilidade de reconhecer e reparar.
+Mas porque já não precisa estar certo o tempo inteiro para continuar consciente de si.
 
-Quando um padrão antigo reaparece, isso não precisa significar que todo o caminho foi perdido.
+Talvez Caminho Real seja justamente isso:
 
-Você pode perceber.
-Reajustar.
-Retomar.
-E continuar.
+estar presente na própria vida enquanto ela acontece.
 
-Isso não é controle.
-Não é ter todas as respostas.
-E definitivamente não é viver em paz consigo mesmo 24 horas por dia. 😂
+Não para controlar cada passo.
 
-É algo bem mais real:
+Mas para conseguir se escutar, escolher e, quando for preciso, escolher de novo.
 
-você começa a estar presente na própria vida enquanto ela acontece.
+Talvez a pergunta agora seja:
 
-Talvez seja justamente isso que diferencia este momento dos anteriores.
+“O que ainda posso descobrir sobre mim quando paro de procurar respostas prontas e continuo me observando enquanto vivo?”`,
+    premiumTitulo: "QUANTO MAIS VOCÊ SE CONHECE, MAIS FÁCIL FICA PERCEBER TUDO SOBRE VOCÊ? OU SERÁ QUE ALGUMAS COISAS SIMPLESMENTE FICAM MAIS SOFISTICADAS?",
+    premiumTexto: `Você já aprendeu a olhar para si.
 
-Antes, compreender alguma coisa sobre você podia ser o ponto de chegada.
+Reconhece padrões, revê escolhas, percebe suas reações e consegue fazer diferente em muitas situações.
 
-Agora, compreender começa a ser só uma parte.
+Mas autoconhecimento não elimina pontos cegos.
 
-Porque aquilo que você percebe sobre si já consegue atravessar a reflexão e chegar à vida real:
+Ele muda o lugar de onde você consegue observá-los.
 
-na conversa que você decide ter.
-no limite que coloca.
-na escolha que sustenta.
-na decisão que revê.
-no erro que repara.
-na mudança que retoma.
+Às vezes o que merece atenção não é um grande padrão repetitivo.
 
-E talvez essa seja uma das partes mais bonitas — e menos glamourosas 😂 — do autoconhecimento:
+Pode estar na escolha que você sustenta sem perceber que já não combina com você.
 
-você não precisa acertar sempre para viver com consciência.
+Na forma como reage quando alguém discorda.
 
-Precisa conseguir se perceber enquanto vive, participar das próprias escolhas e voltar para si quando perceber que se afastou delas.
+Na dificuldade de rever algo que parecia tão certo.
 
-Por isso, Caminho Real não significa:
-“Agora eu sei quem sou.”
+Ou naquele comportamento antigo que reaparece justamente quando você acreditava que já tinha entendido tudo sobre ele.
 
-Talvez signifique algo muito mais interessante:
+É esse olhar que o Resultado Premium — Caminho Real propõe aprofundar.
 
-“Eu consigo me escutar, escolher, rever e continuar me encontrando enquanto vivo.”`,
-    premiumTitulo: "E AGORA QUE VOCÊ JÁ SE PERCEBE MAIS... O QUE AINDA NÃO PERCEBEU?",
-    premiumTexto: `Caminho Real tem uma armadilha curiosa:
+Com o Mapa da Clareza, práticas e um experimento de 7 dias, você vai observar seus movimentos com mais atenção e experimentar novas formas de continuar levando consciência para a vida real.
 
-quanto mais você aprende a se observar, mais fácil pode parecer que já conhece seus próprios movimentos.
-
-Até a vida apresentar uma situação nova. 😂
-
-Porque consciência não é uma resposta que você encontra uma vez e guarda.
-
-Ela aparece na conversa difícil. Na escolha que precisa ser sustentada. Na decisão que precisa ser revista. No padrão que reaparece. Na capacidade de reconhecer, reparar e retomar.
-
-Seu resultado não está dizendo: “Parabéns. Você chegou.”
-
-Está dizendo algo muito mais interessante:
-
-“Você já consegue participar mais conscientemente da própria vida. Agora existe mais coisa para observar.”
-
-O Resultado Premium — Caminho Real é um convite para aprofundar esse movimento.
-
-Com reflexões, Mapa da Clareza, práticas e um experimento de 7 dias, você poderá olhar para diferentes formas pelas quais consciência, escolha, revisão e retomada aparecem na vida real.
-
-Não para alcançar uma versão melhor de você.
-
-Mas para continuar descobrindo quem você é enquanto vive.`,
-    botao: "QUERO IR ALÉM DO MEU RESULTADO",
+Porque se conhecer não é chegar a uma resposta sobre quem você é. É continuar disponível para perceber quem você está sendo.`,
+    botao: "QUERO IR ALÉM DO QUE JÁ PERCEBO",
     checkout: "https://pay.kiwify.com.br/EmsPGr0",
   },
 };
@@ -440,7 +325,23 @@ function analyzeAnswers(answers) {
 
 function Paragraphs({ text, style }) {
   const blocks = text.split(/\n\n+/).map((b) => b.trim()).filter(Boolean);
-  return <>{blocks.map((b, i) => <p key={i} style={{ ...styles.body, ...style, marginBottom: 14 }}>{b}</p>)}</>;
+  return <>
+    {blocks.map((b, i) => {
+      const isQuote = /^“.*”$/s.test(b);
+      const isClosingQuestion = isQuote && b.includes("?");
+      return (
+        <p key={i} style={{
+          ...styles.body,
+          ...style,
+          marginBottom: isClosingQuestion ? 20 : 10,
+          ...(isQuote ? { fontWeight: 600, color: "#3C374F" } : {}),
+          ...(isClosingQuestion ? { fontFamily: "'Fraunces', serif", fontSize: 19, lineHeight: 1.5, marginTop: 6 } : {}),
+        }}>
+          {b}
+        </p>
+      );
+    })}
+  </>;
 }
 
 export default function App() {
@@ -537,7 +438,7 @@ function Intro({ onStart }) {
       <div style={{ ...styles.card, maxWidth: 560, textAlign: "center" }}>
         <p style={styles.eyebrow}>TESTE DE CONSCIÊNCIA PESSOAL</p>
         <h1 style={styles.title}>Quanto daquilo que você percebe sobre si realmente participa da sua vida?</h1>
-        <p style={styles.body}>Às vezes a gente sabe exatamente o que gostaria de fazer... e faz outra coisa. 😂</p>
+        <p style={styles.body}>Às vezes a gente sabe exatamente o que gostaria de fazer... e faz outra coisa.</p>
         <p style={{ ...styles.body, marginTop: 12 }}>
           Este teste vai te ajudar a observar como aquilo que você percebe sobre si aparece nas situações comuns da vida — nas suas reações, escolhas, limites e decisões.
         </p>
@@ -556,7 +457,7 @@ function Instructions({ onStart }) {
       <div style={{ ...styles.card, maxWidth: 560 }}>
         <p style={styles.eyebrow}>ANTES DE COMEÇAR...</p>
         <h2 style={{ ...styles.title, fontSize: 27 }}>Aqui não existe resposta certa.</h2>
-        <p style={styles.body}>E não vale escolher aquela que parece mais bonita. 😏</p>
+        <p style={styles.body}>E não vale escolher aquela que parece mais bonita.</p>
         <p style={{ ...styles.body, marginTop: 14 }}>
           Responda pensando no que acontece <strong>na vida real</strong>:
         </p>
